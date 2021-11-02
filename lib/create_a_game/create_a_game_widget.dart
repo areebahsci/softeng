@@ -6,6 +6,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../flutter_flow/place.dart';
+import '../main.dart';
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -141,7 +142,7 @@ class _CreateAGameWidgetState extends State<CreateAGameWidget> {
                         ),
                       ),
                       FlutterFlowCalendar(
-                        color: Color(0xFFFFC00E),
+                        color: Color(0xFF9800A8),
                         weekFormat: true,
                         weekStartsMonday: false,
                         onChange: (DateTimeRange newSelectedDate) {
@@ -203,9 +204,12 @@ class _CreateAGameWidgetState extends State<CreateAGameWidget> {
                         ),
                       ),
                       FlutterFlowPlacePicker(
-                        iOSGoogleMapsApiKey: '',
-                        androidGoogleMapsApiKey: '',
-                        webGoogleMapsApiKey: '',
+                        iOSGoogleMapsApiKey:
+                            'AIzaSyDw3Nf3Ly6XcnHtnLfLUOEjNRlT1aeAbuMAIzaSyCjfEkAnLAuuYQLum5DnWGHFdTs0ln9FvI',
+                        androidGoogleMapsApiKey:
+                            'AIzaSyCWl-1mzbebP0acqU2rTi1n6diedXqvauA',
+                        webGoogleMapsApiKey:
+                            'AIzaSyCjfEkAnLAuuYQLum5DnWGHFdTs0ln9FvI',
                         onSelect: (place) =>
                             setState(() => placePickerValue = place),
                         defaultText: 'Select Location',
@@ -343,7 +347,7 @@ class _CreateAGameWidgetState extends State<CreateAGameWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 60),
                         child: FFButtonWidget(
                           onPressed: () async {
                             setState(() => _loadingButton = true);
@@ -367,6 +371,14 @@ class _CreateAGameWidgetState extends State<CreateAGameWidget> {
                               await GamesRecord.collection
                                   .doc()
                                   .set(gamesCreateData);
+                              await Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      NavBarPage(initialPage: 'home'),
+                                ),
+                                (r) => false,
+                              );
                             } finally {
                               setState(() => _loadingButton = false);
                             }
@@ -375,7 +387,7 @@ class _CreateAGameWidgetState extends State<CreateAGameWidget> {
                           options: FFButtonOptions(
                             width: 130,
                             height: 40,
-                            color: Color(0xFFFFC00E),
+                            color: Color(0xFF9800A8),
                             textStyle: FlutterFlowTheme.subtitle2.override(
                               fontFamily: 'Poppins',
                               color: Colors.white,

@@ -4,7 +4,10 @@ import '../create_a_game/create_a_game_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../history/history_widget.dart';
 import '../login/login_widget.dart';
+import '../main.dart';
+import '../upcoming_match_details/upcoming_match_details_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -141,7 +144,7 @@ class _HomeWidgetState extends State<HomeWidget> {
               options: FFButtonOptions(
                 width: 350,
                 height: 40,
-                color: Color(0xFF00A898),
+                color: Color(0xFF9800A8),
                 textStyle: FlutterFlowTheme.subtitle2.override(
                   fontFamily: 'Poppins',
                   color: Colors.white,
@@ -158,8 +161,20 @@ class _HomeWidgetState extends State<HomeWidget> {
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
             child: FFButtonWidget(
-              onPressed: () {
-                print('Button pressed ...');
+              onPressed: () async {
+                setState(() => _loadingButton2 = true);
+                try {
+                  await Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          NavBarPage(initialPage: 'matchListings'),
+                    ),
+                    (r) => false,
+                  );
+                } finally {
+                  setState(() => _loadingButton2 = false);
+                }
               },
               text: 'Browse Games',
               icon: Icon(
@@ -169,7 +184,7 @@ class _HomeWidgetState extends State<HomeWidget> {
               options: FFButtonOptions(
                 width: 350,
                 height: 40,
-                color: Color(0xFF00A898),
+                color: Color(0xFF9800A8),
                 textStyle: FlutterFlowTheme.subtitle2.override(
                   fontFamily: 'Poppins',
                   color: Colors.white,
@@ -186,8 +201,18 @@ class _HomeWidgetState extends State<HomeWidget> {
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
             child: FFButtonWidget(
-              onPressed: () {
-                print('Button pressed ...');
+              onPressed: () async {
+                setState(() => _loadingButton3 = true);
+                try {
+                  await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => HistoryWidget(),
+                    ),
+                  );
+                } finally {
+                  setState(() => _loadingButton3 = false);
+                }
               },
               text: 'View History',
               icon: Icon(
@@ -197,7 +222,7 @@ class _HomeWidgetState extends State<HomeWidget> {
               options: FFButtonOptions(
                 width: 350,
                 height: 40,
-                color: Color(0xFF00A898),
+                color: Color(0xFF9800A8),
                 textStyle: FlutterFlowTheme.subtitle2.override(
                   fontFamily: 'Poppins',
                   color: Colors.white,
@@ -294,7 +319,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0, 0, 0, 5),
                                           child: Text(
-                                            listViewGamesRecord.location,
+                                            'Location',
                                             textAlign: TextAlign.start,
                                             style: FlutterFlowTheme.bodyText1
                                                 .override(
@@ -322,7 +347,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0, 0, 0, 5),
                                             child: Text(
-                                              listViewGamesRecord.time,
+                                              'Time',
                                               style: FlutterFlowTheme.bodyText1
                                                   .override(
                                                 fontFamily: 'Poppins',
@@ -336,7 +361,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0, 0, 0, 5),
                                         child: Text(
-                                          listViewGamesRecord.gameTitle,
+                                          'game title',
                                           style: FlutterFlowTheme.bodyText1
                                               .override(
                                             fontFamily: 'Poppins',
@@ -362,8 +387,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0, 0, 0, 5),
                                             child: Text(
-                                              listViewGamesRecord.maxPlayers
-                                                  .toString(),
+                                              'max players',
                                               style: FlutterFlowTheme.bodyText1
                                                   .override(
                                                 fontFamily: 'Poppins',
@@ -380,10 +404,21 @@ class _HomeWidgetState extends State<HomeWidget> {
                               Expanded(
                                 child: Align(
                                   alignment: AlignmentDirectional(0.6, -0.3),
-                                  child: Icon(
-                                    Icons.arrow_forward,
-                                    color: Color(0xFF00A898),
-                                    size: 24,
+                                  child: InkWell(
+                                    onTap: () async {
+                                      await Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              UpcomingMatchDetailsWidget(),
+                                        ),
+                                      );
+                                    },
+                                    child: Icon(
+                                      Icons.arrow_forward,
+                                      color: Color(0xFF00A898),
+                                      size: 24,
+                                    ),
                                   ),
                                 ),
                               )
