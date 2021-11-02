@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "903717135910",
+    "project_id": "sports-management-app",
+    "storage_bucket": "sports-management-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:903717135910:android:046799a180213b76a128e7",
+        "android_client_info": {
+          "package_name": "com.flutterflow.sportsmanagementapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "903717135910-enkogn2n8v8hv469t1308h2uvb5kra04.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWl-1mzbebP0acqU2rTi1n6diedXqvauA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "903717135910-enkogn2n8v8hv469t1308h2uvb5kra04.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "903717135910-kk6st2sqd53b5qngnrrfkqrdigqsjq7o.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.flutterflow.sportsmanagementapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
