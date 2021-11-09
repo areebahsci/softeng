@@ -1,8 +1,9 @@
+import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../login/login_widget.dart';
+import '../landing_page/landing_page_widget.dart';
 import '../upcoming_match_details/upcoming_match_details_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -67,10 +68,11 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 3),
                     child: InkWell(
                       onTap: () async {
+                        await signOut();
                         await Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => LoginWidget(),
+                            builder: (context) => LandingPageWidget(),
                           ),
                           (r) => false,
                         );

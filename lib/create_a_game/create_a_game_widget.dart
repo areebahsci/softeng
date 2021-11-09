@@ -1,4 +1,5 @@
 import '../auth/auth_util.dart';
+import '../backend/api_requests/api_calls.dart';
 import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_calendar.dart';
 import '../flutter_flow/flutter_flow_place_picker.dart';
@@ -71,6 +72,26 @@ class _CreateAGameWidgetState extends State<CreateAGameWidget> {
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(10, 35, 0, 0),
+                      child: InkWell(
+                        onTap: () async {
+                          await Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  NavBarPage(initialPage: 'home'),
+                            ),
+                            (r) => false,
+                          );
+                        },
+                        child: Icon(
+                          Icons.arrow_back,
+                          color: Colors.white,
+                          size: 24,
+                        ),
+                      ),
+                    ),
                     Expanded(
                       child: Align(
                         alignment: AlignmentDirectional(0, 0.45),
@@ -203,35 +224,53 @@ class _CreateAGameWidgetState extends State<CreateAGameWidget> {
                           style: FlutterFlowTheme.bodyText1,
                         ),
                       ),
-                      FlutterFlowPlacePicker(
-                        iOSGoogleMapsApiKey:
-                            'AIzaSyDw3Nf3Ly6XcnHtnLfLUOEjNRlT1aeAbuMAIzaSyCjfEkAnLAuuYQLum5DnWGHFdTs0ln9FvI',
-                        androidGoogleMapsApiKey:
-                            'AIzaSyCWl-1mzbebP0acqU2rTi1n6diedXqvauA',
-                        webGoogleMapsApiKey:
-                            'AIzaSyCjfEkAnLAuuYQLum5DnWGHFdTs0ln9FvI',
-                        onSelect: (place) =>
-                            setState(() => placePickerValue = place),
-                        defaultText: 'Select Location',
-                        icon: Icon(
-                          Icons.place,
-                          color: Colors.white,
-                          size: 16,
-                        ),
-                        buttonOptions: FFButtonOptions(
-                          width: 200,
-                          height: 40,
-                          color: FlutterFlowTheme.primaryColor,
-                          textStyle: FlutterFlowTheme.subtitle2.override(
-                            fontFamily: 'Poppins',
-                            color: Colors.white,
-                          ),
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                            width: 1,
-                          ),
-                          borderRadius: 12,
-                        ),
+                      FutureBuilder<dynamic>(
+                        future: geoLocationCall(),
+                        builder: (context, snapshot) {
+                          // Customize what your widget looks like when it's loading.
+                          if (!snapshot.hasData) {
+                            return Center(
+                              child: SizedBox(
+                                width: 50,
+                                height: 50,
+                                child: CircularProgressIndicator(
+                                  color: FlutterFlowTheme.primaryColor,
+                                ),
+                              ),
+                            );
+                          }
+                          final placePickerGeoLocationResponse = snapshot.data;
+                          return FlutterFlowPlacePicker(
+                            iOSGoogleMapsApiKey:
+                                'AIzaSyDw3Nf3Ly6XcnHtnLfLUOEjNRlT1aeAbuMAIzaSyCjfEkAnLAuuYQLum5DnWGHFdTs0ln9FvI',
+                            androidGoogleMapsApiKey:
+                                'AIzaSyCWl-1mzbebP0acqU2rTi1n6diedXqvauA',
+                            webGoogleMapsApiKey:
+                                'AIzaSyCjfEkAnLAuuYQLum5DnWGHFdTs0ln9FvI',
+                            onSelect: (place) =>
+                                setState(() => placePickerValue = place),
+                            defaultText: 'Select Location',
+                            icon: Icon(
+                              Icons.place,
+                              color: Colors.white,
+                              size: 16,
+                            ),
+                            buttonOptions: FFButtonOptions(
+                              width: 200,
+                              height: 40,
+                              color: FlutterFlowTheme.primaryColor,
+                              textStyle: FlutterFlowTheme.subtitle2.override(
+                                fontFamily: 'Poppins',
+                                color: Colors.white,
+                              ),
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1,
+                              ),
+                              borderRadius: 12,
+                            ),
+                          );
+                        },
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
@@ -240,7 +279,7 @@ class _CreateAGameWidgetState extends State<CreateAGameWidget> {
                           obscureText: false,
                           decoration: InputDecoration(
                             isDense: true,
-                            hintText: 'Enter location...',
+                            hintText: 'Enter location name...',
                             hintStyle: FlutterFlowTheme.bodyText1,
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -357,12 +396,12 @@ class _CreateAGameWidgetState extends State<CreateAGameWidget> {
                               }
                               final gamesCreateData = createGamesRecordData(
                                 gameTitle: textController1.text,
-                                host: currentUserDisplayName,
+                                host: currentUserEmail,
                                 description: textController5.text,
                                 maxPlayers: int.parse(textController4.text),
                                 date: calendarSelectedDay.start,
                                 time: textController2.text,
-                                location: textController3.text,
+                                location: placePickerValue.address,
                               );
                               await GamesRecord.collection
                                   .doc()

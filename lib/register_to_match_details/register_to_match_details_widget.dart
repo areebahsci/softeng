@@ -1,7 +1,8 @@
-import '../create_a_game/create_a_game_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../list_of_users_registered/list_of_users_registered_widget.dart';
+import '../main.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -39,20 +40,37 @@ class _RegisterToMatchDetailsWidgetState
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(10, 35, 0, 0),
+                    child: InkWell(
+                      onTap: () async {
+                        await Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                NavBarPage(initialPage: 'matchListings'),
+                          ),
+                          (r) => false,
+                        );
+                      },
+                      child: Icon(
+                        Icons.arrow_back,
+                        color: Colors.white,
+                        size: 24,
+                      ),
+                    ),
+                  ),
                   Expanded(
                     child: Align(
                       alignment: AlignmentDirectional(0, 0.45),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
-                        child: Text(
-                          'Game Title',
-                          textAlign: TextAlign.center,
-                          style: GoogleFonts.getFont(
-                            'Source Sans Pro',
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 30,
-                          ),
+                      child: Text(
+                        'Game Title',
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.getFont(
+                          'Source Sans Pro',
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30,
                         ),
                       ),
                     ),
@@ -191,7 +209,7 @@ class _RegisterToMatchDetailsWidgetState
                         await Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => CreateAGameWidget(),
+                            builder: (context) => ListOfUsersRegisteredWidget(),
                           ),
                         );
                       } finally {
@@ -223,18 +241,8 @@ class _RegisterToMatchDetailsWidgetState
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 10),
                   child: FFButtonWidget(
-                    onPressed: () async {
-                      setState(() => _loadingButton2 = true);
-                      try {
-                        await Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => CreateAGameWidget(),
-                          ),
-                        );
-                      } finally {
-                        setState(() => _loadingButton2 = false);
-                      }
+                    onPressed: () {
+                      print('Button pressed ...');
                     },
                     text: 'SIGN UP',
                     icon: Icon(

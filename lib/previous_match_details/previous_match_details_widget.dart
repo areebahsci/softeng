@@ -1,7 +1,8 @@
-import '../create_a_game/create_a_game_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../history/history_widget.dart';
+import '../list_of_users_registered/list_of_users_registered_widget.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -38,6 +39,24 @@ class _PreviousMatchDetailsWidgetState
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(10, 35, 0, 0),
+                    child: InkWell(
+                      onTap: () async {
+                        await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HistoryWidget(),
+                          ),
+                        );
+                      },
+                      child: Icon(
+                        Icons.arrow_back,
+                        color: Colors.white,
+                        size: 24,
+                      ),
+                    ),
+                  ),
                   Expanded(
                     child: Align(
                       alignment: AlignmentDirectional(0, 0.45),
@@ -190,7 +209,7 @@ class _PreviousMatchDetailsWidgetState
                         await Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => CreateAGameWidget(),
+                            builder: (context) => ListOfUsersRegisteredWidget(),
                           ),
                         );
                       } finally {

@@ -4,6 +4,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../login/login_widget.dart';
+import '../main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -269,7 +270,8 @@ class _SignupWidgetState extends State<SignupWidget> {
                           await Navigator.pushAndRemoveUntil(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => LoginWidget(),
+                              builder: (context) =>
+                                  NavBarPage(initialPage: 'profile'),
                             ),
                             (r) => false,
                           );

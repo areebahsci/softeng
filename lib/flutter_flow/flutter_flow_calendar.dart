@@ -96,8 +96,8 @@ class _FlutterFlowCalendarState extends State<FlutterFlowCalendar> {
     final newRange = newSelectedDay == null
         ? null
         : DateTimeRange(
-            start: newSelectedDay,
-            end: newSelectedEnd ?? newSelectedDay,
+            start: newSelectedDay.startOfDay,
+            end: newSelectedEnd ?? newSelectedDay.endOfDay,
           );
     setState(() {
       selectedDay = newRange;

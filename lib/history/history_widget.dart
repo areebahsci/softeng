@@ -1,7 +1,7 @@
 import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
-import '../login/login_widget.dart';
+import '../main.dart';
 import '../previous_match_details/previous_match_details_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -33,42 +33,36 @@ class _HistoryWidgetState extends State<HistoryWidget> {
             child: Row(
               mainAxisSize: MainAxisSize.max,
               children: [
-                Expanded(
-                  child: Align(
-                    alignment: AlignmentDirectional(0, 0.45),
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
-                      child: Text(
-                        'Previous Matches',
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.getFont(
-                          'Source Sans Pro',
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 30,
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(10, 35, 0, 0),
+                  child: InkWell(
+                    onTap: () async {
+                      await Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => NavBarPage(initialPage: 'home'),
                         ),
-                      ),
+                        (r) => false,
+                      );
+                    },
+                    child: Icon(
+                      Icons.arrow_back,
+                      color: Colors.white,
+                      size: 24,
                     ),
                   ),
                 ),
-                Align(
-                  alignment: AlignmentDirectional(0, 0.45),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 9, 3),
-                    child: InkWell(
-                      onTap: () async {
-                        await Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => LoginWidget(),
-                          ),
-                          (r) => false,
-                        );
-                      },
-                      child: Icon(
-                        Icons.logout,
-                        color: Colors.black,
-                        size: 24,
+                Expanded(
+                  child: Align(
+                    alignment: AlignmentDirectional(0, 0.45),
+                    child: Text(
+                      'Previous Matches',
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.getFont(
+                        'Source Sans Pro',
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 30,
                       ),
                     ),
                   ),
