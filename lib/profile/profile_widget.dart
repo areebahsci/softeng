@@ -96,45 +96,52 @@ class _ProfileWidgetState extends State<ProfileWidget> {
             child: Row(
               mainAxisSize: MainAxisSize.max,
               children: [
-                Expanded(
-                  child: Align(
-                    alignment: AlignmentDirectional(0, 0.5),
-                    child: AuthUserStreamWidget(
-                      child: InkWell(
-                        onTap: () async {
-                          final selectedMedia =
-                              await selectMediaWithSourceBottomSheet(
-                            context: context,
-                            allowPhoto: true,
-                          );
-                          if (selectedMedia != null &&
-                              validateFileFormat(
-                                  selectedMedia.storagePath, context)) {
-                            showUploadMessage(context, 'Uploading file...',
-                                showLoading: true);
-                            final downloadUrl = await uploadData(
-                                selectedMedia.storagePath, selectedMedia.bytes);
-                            ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                            if (downloadUrl != null) {
-                              setState(() => uploadedFileUrl = downloadUrl);
-                              showUploadMessage(context, 'Success!');
-                            } else {
-                              showUploadMessage(
-                                  context, 'Failed to upload media');
-                              return;
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(60, 0, 0, 0),
+                  child: Container(
+                    width: 100,
+                    height: 100,
+                    decoration: BoxDecoration(
+                      color: Color(0xFFEEEEEE),
+                    ),
+                    child: Align(
+                      alignment: AlignmentDirectional(0, 0.5),
+                      child: AuthUserStreamWidget(
+                        child: InkWell(
+                          onTap: () async {
+                            final selectedMedia =
+                                await selectMediaWithSourceBottomSheet(
+                              context: context,
+                              allowPhoto: true,
+                            );
+                            if (selectedMedia != null &&
+                                validateFileFormat(
+                                    selectedMedia.storagePath, context)) {
+                              showUploadMessage(context, 'Uploading file...',
+                                  showLoading: true);
+                              final downloadUrl = await uploadData(
+                                  selectedMedia.storagePath,
+                                  selectedMedia.bytes);
+                              ScaffoldMessenger.of(context)
+                                  .hideCurrentSnackBar();
+                              if (downloadUrl != null) {
+                                setState(() => uploadedFileUrl = downloadUrl);
+                                showUploadMessage(context, 'Success!');
+                              } else {
+                                showUploadMessage(
+                                    context, 'Failed to upload media');
+                                return;
+                              }
                             }
-                          }
-                        },
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(100),
-                          child: Image.network(
-                            valueOrDefault<String>(
-                              currentUserPhoto,
-                              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7vBwpjSla3XSn3t4yIc2yNHZGeyaAq8dOkMxF_l505Z0u8tw2A1bNIDeS5vTiCZ-6Cc4&usqp=CAU',
+                          },
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(100),
+                            child: Image.asset(
+                              'assets/images/gxif9_600',
+                              width: 150,
+                              height: 150,
+                              fit: BoxFit.scaleDown,
                             ),
-                            width: 150,
-                            height: 150,
-                            fit: BoxFit.scaleDown,
                           ),
                         ),
                       ),
@@ -142,7 +149,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 2, 5, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(50, 2, 5, 0),
                   child: FaIcon(
                     FontAwesomeIcons.userEdit,
                     color: Colors.black,
