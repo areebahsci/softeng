@@ -6,7 +6,7 @@ import 'auth/firebase_user_provider.dart';
 import 'auth/auth_util.dart';
 
 import '../flutter_flow/flutter_flow_theme.dart';
-import 'package:sports_management_app/login/login_widget.dart';
+import 'package:sports_management_app/landing_page/landing_page_widget.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'home/home_widget.dart';
 import 'match_listings/match_listings_widget.dart';
@@ -67,7 +67,7 @@ class _MyAppState extends State<MyApp> {
             )
           : currentUser.loggedIn
               ? NavBarPage()
-              : LoginWidget(),
+              : LandingPageWidget(),
     );
   }
 }
@@ -138,7 +138,7 @@ class _NavBarPageState extends State<NavBarPage> {
         ],
         backgroundColor: Colors.white,
         currentIndex: tabs.keys.toList().indexOf(_currentPage),
-        selectedItemColor: FlutterFlowTheme.primaryColor,
+        selectedItemColor: Color(0xFF9800A8),
         unselectedItemColor: Color(0x8A000000),
         onTap: (i) => setState(() => _currentPage = tabs.keys.toList()[i]),
         showSelectedLabels: false,
