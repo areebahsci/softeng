@@ -136,8 +136,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           },
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(100),
-                            child: Image.asset(
-                              'assets/images/gxif9_600',
+                            child: Image.network(
+                              currentUserPhoto,
                               width: 150,
                               height: 150,
                               fit: BoxFit.scaleDown,

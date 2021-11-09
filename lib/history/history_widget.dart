@@ -74,10 +74,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
             child: Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
               child: StreamBuilder<List<GamesRecord>>(
-                stream: queryGamesRecord(
-                  queryBuilder: (gamesRecord) =>
-                      gamesRecord.orderBy('Date').orderBy('Time'),
-                ),
+                stream: queryGamesRecord(),
                 builder: (context, snapshot) {
                   // Customize what your widget looks like when it's loading.
                   if (!snapshot.hasData) {

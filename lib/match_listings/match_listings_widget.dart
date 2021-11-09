@@ -222,10 +222,7 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
           ),
           Expanded(
             child: StreamBuilder<List<GamesRecord>>(
-              stream: queryGamesRecord(
-                queryBuilder: (gamesRecord) =>
-                    gamesRecord.orderBy('Date').orderBy('Time'),
-              ),
+              stream: queryGamesRecord(),
               builder: (context, snapshot) {
                 // Customize what your widget looks like when it's loading.
                 if (!snapshot.hasData) {
