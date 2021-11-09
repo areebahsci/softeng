@@ -286,23 +286,11 @@ class _HomeWidgetState extends State<HomeWidget> {
                           shape: BoxShape.rectangle,
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(10, 10, 0, 10),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
-                                child: Image.network(
-                                  valueOrDefault<String>(
-                                    listViewGamesRecord.locationImage,
-                                    'https://picsum.photos/seed/516/600',
-                                  ),
-                                  width: 100,
-                                  height: 100,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
                               Align(
                                 alignment: AlignmentDirectional(0, 0),
                                 child: Padding(
