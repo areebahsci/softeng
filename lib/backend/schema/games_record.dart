@@ -35,10 +35,6 @@ abstract class GamesRecord implements Built<GamesRecord, GamesRecordBuilder> {
   int get id;
 
   @nullable
-  @BuiltValueField(wireName: 'user_emailsList')
-  BuiltList<String> get userEmailsList;
-
-  @nullable
   @BuiltValueField(wireName: 'Date')
   DateTime get date;
 
@@ -58,7 +54,6 @@ abstract class GamesRecord implements Built<GamesRecord, GamesRecordBuilder> {
     ..description = ''
     ..maxPlayers = 0
     ..id = 0
-    ..userEmailsList = ListBuilder()
     ..time = '';
 
   static CollectionReference get collection =>
@@ -99,6 +94,5 @@ Map<String, dynamic> createGamesRecordData({
           ..description = description
           ..maxPlayers = maxPlayers
           ..id = id
-          ..userEmailsList = null
           ..date = date
           ..time = time));

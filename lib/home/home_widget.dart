@@ -144,7 +144,7 @@ class _HomeWidgetState extends State<HomeWidget> {
               options: FFButtonOptions(
                 width: 350,
                 height: 40,
-                color: Color(0xFF9800A8),
+                color: Color(0xFFFFC00E),
                 textStyle: FlutterFlowTheme.subtitle2.override(
                   fontFamily: 'Poppins',
                   color: Colors.white,
@@ -184,7 +184,7 @@ class _HomeWidgetState extends State<HomeWidget> {
               options: FFButtonOptions(
                 width: 350,
                 height: 40,
-                color: Color(0xFF9800A8),
+                color: Color(0xFFFFC00E),
                 textStyle: FlutterFlowTheme.subtitle2.override(
                   fontFamily: 'Poppins',
                   color: Colors.white,
@@ -222,7 +222,7 @@ class _HomeWidgetState extends State<HomeWidget> {
               options: FFButtonOptions(
                 width: 350,
                 height: 40,
-                color: Color(0xFF9800A8),
+                color: Color(0xFFFFC00E),
                 textStyle: FlutterFlowTheme.subtitle2.override(
                   fontFamily: 'Poppins',
                   color: Colors.white,

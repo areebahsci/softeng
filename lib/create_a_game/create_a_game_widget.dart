@@ -355,19 +355,15 @@ class _CreateAGameWidgetState extends State<CreateAGameWidget> {
                               if (!formKey.currentState.validate()) {
                                 return;
                               }
-                              final gamesCreateData = {
-                                ...createGamesRecordData(
-                                  gameTitle: textController1.text,
-                                  host: currentUserDisplayName,
-                                  description: textController5.text,
-                                  maxPlayers: int.parse(textController4.text),
-                                  location: placePickerValue.name,
-                                  date: calendarSelectedDay.start,
-                                  time: textController2.text,
-                                ),
-                                'user_emailsList':
-                                    FieldValue.arrayUnion([currentUserEmail]),
-                              };
+                              final gamesCreateData = createGamesRecordData(
+                                gameTitle: textController1.text,
+                                host: currentUserDisplayName,
+                                description: textController5.text,
+                                maxPlayers: int.parse(textController4.text),
+                                date: calendarSelectedDay.start,
+                                time: textController2.text,
+                                location: textController3.text,
+                              );
                               await GamesRecord.collection
                                   .doc()
                                   .set(gamesCreateData);
