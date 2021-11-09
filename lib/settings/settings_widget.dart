@@ -83,8 +83,29 @@ class _SettingsWidgetState extends State<SettingsWidget> {
             child: Padding(
               padding: EdgeInsetsDirectional.fromSTEB(10, 30, 10, 0),
               child: FFButtonWidget(
-                onPressed: () {
-                  print('Button pressed ...');
+                onPressed: () async {
+                  setState(() => _loadingButton1 = true);
+                  try {
+                    await showDialog(
+                      context: context,
+                      builder: (alertDialogContext) {
+                        return AlertDialog(
+                          title: Text('About'),
+                          content: Text(
+                              'This is a sports event management app made for the course COE420. We hope you like it! '),
+                          actions: [
+                            TextButton(
+                              onPressed: () =>
+                                  Navigator.pop(alertDialogContext),
+                              child: Text('Ok'),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  } finally {
+                    setState(() => _loadingButton1 = false);
+                  }
                 },
                 text: 'Help\n',
                 icon: Icon(
@@ -112,8 +133,28 @@ class _SettingsWidgetState extends State<SettingsWidget> {
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
             child: FFButtonWidget(
-              onPressed: () {
-                print('Button pressed ...');
+              onPressed: () async {
+                setState(() => _loadingButton2 = true);
+                try {
+                  await showDialog(
+                    context: context,
+                    builder: (alertDialogContext) {
+                      return AlertDialog(
+                        title: Text('Tell a friend!'),
+                        content: Text(
+                            'Copy the following link so that your friends don\'t miss out on the app! fakelink.com'),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.pop(alertDialogContext),
+                            child: Text('Ok'),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                } finally {
+                  setState(() => _loadingButton2 = false);
+                }
               },
               text: 'Tell a Friend',
               icon: Icon(
@@ -142,8 +183,19 @@ class _SettingsWidgetState extends State<SettingsWidget> {
             child: Padding(
               padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
               child: FFButtonWidget(
-                onPressed: () {
-                  print('Button pressed ...');
+                onPressed: () async {
+                  setState(() => _loadingButton3 = true);
+                  try {
+                    await signOut();
+                    await Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LandingPageWidget(),
+                      ),
+                    );
+                  } finally {
+                    setState(() => _loadingButton3 = false);
+                  }
                 },
                 text: 'Logout',
                 icon: Icon(
