@@ -128,10 +128,13 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(100),
                           child: Image.network(
-                            currentUserPhoto,
+                            valueOrDefault<String>(
+                              currentUserPhoto,
+                              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7vBwpjSla3XSn3t4yIc2yNHZGeyaAq8dOkMxF_l505Z0u8tw2A1bNIDeS5vTiCZ-6Cc4&usqp=CAU',
+                            ),
                             width: 150,
                             height: 150,
-                            fit: BoxFit.cover,
+                            fit: BoxFit.scaleDown,
                           ),
                         ),
                       ),
