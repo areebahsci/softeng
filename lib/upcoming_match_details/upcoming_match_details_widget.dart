@@ -1,7 +1,7 @@
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../list_of_users_registered/list_of_users_registered_widget.dart';
+import '../list_of_users_registered_upcoming/list_of_users_registered_upcoming_widget.dart';
 import '../main.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
@@ -209,7 +209,8 @@ class _UpcomingMatchDetailsWidgetState
                         await Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => ListOfUsersRegisteredWidget(),
+                            builder: (context) =>
+                                ListOfUsersRegisteredUpcomingWidget(),
                           ),
                         );
                       } finally {

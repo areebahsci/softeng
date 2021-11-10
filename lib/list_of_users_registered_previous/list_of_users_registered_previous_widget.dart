@@ -1,19 +1,20 @@
 import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../previous_match_details/previous_match_details_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ListOfUsersRegisteredWidget extends StatefulWidget {
-  ListOfUsersRegisteredWidget({Key key}) : super(key: key);
+class ListOfUsersRegisteredPreviousWidget extends StatefulWidget {
+  ListOfUsersRegisteredPreviousWidget({Key key}) : super(key: key);
 
   @override
-  _ListOfUsersRegisteredWidgetState createState() =>
-      _ListOfUsersRegisteredWidgetState();
+  _ListOfUsersRegisteredPreviousWidgetState createState() =>
+      _ListOfUsersRegisteredPreviousWidgetState();
 }
 
-class _ListOfUsersRegisteredWidgetState
-    extends State<ListOfUsersRegisteredWidget> {
+class _ListOfUsersRegisteredPreviousWidgetState
+    extends State<ListOfUsersRegisteredPreviousWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -38,10 +39,22 @@ class _ListOfUsersRegisteredWidgetState
                   children: [
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(10, 35, 0, 0),
-                      child: Icon(
-                        Icons.arrow_back,
-                        color: Colors.white,
-                        size: 24,
+                      child: InkWell(
+                        onTap: () async {
+                          await Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  PreviousMatchDetailsWidget(),
+                            ),
+                            (r) => false,
+                          );
+                        },
+                        child: Icon(
+                          Icons.arrow_back,
+                          color: Colors.white,
+                          size: 24,
+                        ),
                       ),
                     ),
                     Expanded(
