@@ -324,6 +324,18 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                       fontSize: 18,
                     ),
                   ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                  child: AuthUserStreamWidget(
+                    child: Text(
+                      currentUserEmail,
+                      style: FlutterFlowTheme.bodyText1.override(
+                        fontFamily: 'Poppins',
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
                 )
               ],
             ),
@@ -377,6 +389,18 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     style: FlutterFlowTheme.bodyText1.override(
                       fontFamily: 'Poppins',
                       fontSize: 18,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                  child: AuthUserStreamWidget(
+                    child: Text(
+                      currentPhoneNumber,
+                      style: FlutterFlowTheme.bodyText1.override(
+                        fontFamily: 'Poppins',
+                        fontSize: 18,
+                      ),
                     ),
                   ),
                 )
