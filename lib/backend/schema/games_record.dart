@@ -43,6 +43,10 @@ abstract class GamesRecord implements Built<GamesRecord, GamesRecordBuilder> {
   String get time;
 
   @nullable
+  @BuiltValueField(wireName: 'CurrPlayers')
+  int get currplayers;
+
+  @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
@@ -54,7 +58,8 @@ abstract class GamesRecord implements Built<GamesRecord, GamesRecordBuilder> {
     ..description = ''
     ..maxPlayers = 0
     ..id = 0
-    ..time = '';
+    ..time = ''
+    .._currPlayers = 0;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('games');
@@ -83,6 +88,7 @@ Map<String, dynamic> createGamesRecordData({
   int id,
   DateTime date,
   String time,
+  int currplayers,
 }) =>
     serializers.toFirestore(
         GamesRecord.serializer,
@@ -95,4 +101,5 @@ Map<String, dynamic> createGamesRecordData({
           ..maxPlayers = maxPlayers
           ..id = id
           ..date = date
-          ..time = time));
+          ..time = time
+          ..currPlayers = currplayers));

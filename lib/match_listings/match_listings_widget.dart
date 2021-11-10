@@ -263,16 +263,18 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
-                                child: Image.network(
-                                  listViewGamesRecord.locationImage,
-                                  width: 100,
-                                  height: 100,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
+                              Expanded(
+                                  flex: 1,
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10, 0, 0, 0),
+                                    child: Image.network(
+                                      listViewGamesRecord.locationImage,
+                                      width: 100,
+                                      height: 100,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  )),
                               Align(
                                 alignment: AlignmentDirectional(0, 0),
                                 child: Padding(
@@ -358,7 +360,8 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0, 0, 0, 5),
                                             child: Text(
-                                              'max players',
+                                              listViewGamesRecord.maxPlayers
+                                                  .toString(),
                                               style: FlutterFlowTheme.bodyText1
                                                   .override(
                                                 fontFamily: 'Poppins',
