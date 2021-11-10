@@ -48,7 +48,7 @@ class _UpcomingMatchDetailsWidgetState
                           context,
                           MaterialPageRoute(
                             builder: (context) =>
-                                NavBarPage(initialPage: 'matchListings'),
+                                NavBarPage(initialPage: 'home'),
                           ),
                           (r) => false,
                         );
