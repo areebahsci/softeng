@@ -375,20 +375,24 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
                               Expanded(
                                 child: Align(
                                   alignment: AlignmentDirectional(0.6, -0.3),
-                                  child: InkWell(
-                                    onTap: () async {
-                                      await Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              RegisterToMatchDetailsWidget(),
-                                        ),
-                                      );
-                                    },
-                                    child: Icon(
-                                      Icons.arrow_forward,
-                                      color: Color(0xFF00A898),
-                                      size: 24,
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 20, 0, 0),
+                                    child: InkWell(
+                                      onTap: () async {
+                                        await Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                RegisterToMatchDetailsWidget(),
+                                          ),
+                                        );
+                                      },
+                                      child: Icon(
+                                        Icons.arrow_forward,
+                                        color: Color(0xFF00A898),
+                                        size: 24,
+                                      ),
                                     ),
                                   ),
                                 ),
