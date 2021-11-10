@@ -4,7 +4,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../landing_page/landing_page_widget.dart';
-import '../upcoming_match_details/upcoming_match_details_widget.dart';
+import '../register_to_match_details/register_to_match_details_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -381,7 +381,7 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
                                         context,
                                         MaterialPageRoute(
                                           builder: (context) =>
-                                              UpcomingMatchDetailsWidget(),
+                                              RegisterToMatchDetailsWidget(),
                                         ),
                                       );
                                     },
