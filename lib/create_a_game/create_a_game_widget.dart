@@ -31,7 +31,6 @@ class _CreateAGameWidgetState extends State<CreateAGameWidget> {
   TextEditingController textController3;
   int countControllerValue;
   TextEditingController textController4;
-  GamesRecord newGame;
   bool _loadingButton = false;
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -455,11 +454,9 @@ class _CreateAGameWidgetState extends State<CreateAGameWidget> {
                                 'currentPlayersList': FieldValue.arrayUnion(
                                     [currentUserReference]),
                               };
-                              final gamesRecordReference =
-                                  GamesRecord.collection.doc();
-                              await gamesRecordReference.set(gamesCreateData);
-                              newGame = GamesRecord.getDocumentFromData(
-                                  gamesCreateData, gamesRecordReference);
+                              await GamesRecord.collection
+                                  .doc()
+                                  .set(gamesCreateData);
                               await Navigator.push(
                                 context,
                                 PageTransition(
@@ -469,8 +466,6 @@ class _CreateAGameWidgetState extends State<CreateAGameWidget> {
                                   child: NavBarPage(initialPage: 'home'),
                                 ),
                               );
-
-                              setState(() {});
                             } finally {
                               setState(() => _loadingButton = false);
                             }
