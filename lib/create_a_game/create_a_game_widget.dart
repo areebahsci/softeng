@@ -31,7 +31,6 @@ class _CreateAGameWidgetState extends State<CreateAGameWidget> {
   TextEditingController textController3;
   int countControllerValue;
   TextEditingController textController4;
-  GamesRecord newGame;
   bool _loadingButton = false;
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -455,21 +454,18 @@ class _CreateAGameWidgetState extends State<CreateAGameWidget> {
                                 'currentPlayersList': FieldValue.arrayUnion(
                                     [currentUserReference]),
                               };
-                              final gamesRecordReference =
-                                  GamesRecord.collection.doc();
-                              await gamesRecordReference.set(gamesCreateData);
-                              newGame = GamesRecord.getDocumentFromData(
-                                  gamesCreateData, gamesRecordReference);
-                              await Navigator.pushAndRemoveUntil(
+                              await GamesRecord.collection
+                                  .doc()
+                                  .set(gamesCreateData);
+                              await Navigator.push(
                                 context,
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      NavBarPage(initialPage: 'home'),
+                                PageTransition(
+                                  type: PageTransitionType.fade,
+                                  duration: Duration(milliseconds: 0),
+                                  reverseDuration: Duration(milliseconds: 0),
+                                  child: NavBarPage(initialPage: 'home'),
                                 ),
-                                (r) => false,
                               );
-
-                              setState(() {});
                             } finally {
                               setState(() => _loadingButton = false);
                             }
