@@ -165,6 +165,7 @@ class _CreateAGameWidgetState extends State<CreateAGameWidget> {
                         ),
                       ),
                       FlutterFlowDropDown(
+                        initialOption: dropDownValue ??= 'Football',
                         options: [
                           'Football',
                           'Basketball',
@@ -378,7 +379,7 @@ class _CreateAGameWidgetState extends State<CreateAGameWidget> {
                                 fontSize: 16,
                               ),
                             ),
-                            count: countControllerValue ??= 0,
+                            count: countControllerValue ??= 10,
                             updateCount: (count) =>
                                 setState(() => countControllerValue = count),
                             stepSize: 1,
@@ -445,7 +446,10 @@ class _CreateAGameWidgetState extends State<CreateAGameWidget> {
                                   currentPlayers: 1,
                                   gameIsOver: 0,
                                   geolocation: placePickerValue.latLng,
-                                  gameType: dropDownValue,
+                                  gameType: valueOrDefault<String>(
+                                    dropDownValue,
+                                    'Football',
+                                  ),
                                 ),
                                 'currentPlayersList': FieldValue.arrayUnion(
                                     [currentUserReference]),
