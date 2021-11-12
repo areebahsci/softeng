@@ -229,44 +229,8 @@ class _SettingsWidgetState extends State<SettingsWidget> {
             child: Padding(
               padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
               child: FFButtonWidget(
-                onPressed: () async {
-                  setState(() => _loadingButton4 = true);
-                  try {
-                    await showDialog(
-                      context: context,
-                      builder: (alertDialogContext) {
-                        return AlertDialog(
-                          title: Text('DELETE ACCOUNT'),
-                          content: Text(
-                              'Are you sure you want to delete your account?'),
-                          actions: [
-                            TextButton(
-                              onPressed: () =>
-                                  Navigator.pop(alertDialogContext),
-                              child: Text('Cancel'),
-                            ),
-                            TextButton(
-                              onPressed: () async {
-                                Navigator.pop(alertDialogContext);
-                                await currentUserReference.delete();
-                                ;
-                              },
-                              child: Text('Confirm'),
-                            ),
-                          ],
-                        );
-                      },
-                    );
-                    await signOut();
-                    await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => LandingPageWidget(),
-                      ),
-                    );
-                  } finally {
-                    setState(() => _loadingButton4 = false);
-                  }
+                onPressed: () {
+                  print('Button pressed ...');
                 },
                 text: 'Delete your account',
                 icon: Icon(
