@@ -383,6 +383,7 @@ class _CreateAGameWidgetState extends State<CreateAGameWidget> {
                             updateCount: (count) =>
                                 setState(() => countControllerValue = count),
                             stepSize: 1,
+                            minimum: 2,
                           ),
                         ),
                       ),
