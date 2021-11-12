@@ -17,6 +17,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
   bool _loadingButton1 = false;
   bool _loadingButton2 = false;
   bool _loadingButton3 = false;
+  bool _loadingButton4 = false;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -119,6 +120,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                   textStyle: FlutterFlowTheme.subtitle2.override(
                     fontFamily: 'Poppins',
                     color: Colors.white,
+                    fontSize: 20,
                   ),
                   borderSide: BorderSide(
                     color: Colors.transparent,
@@ -168,6 +170,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                 textStyle: FlutterFlowTheme.subtitle2.override(
                   fontFamily: 'Poppins',
                   color: Colors.white,
+                  fontSize: 20,
                 ),
                 borderSide: BorderSide(
                   color: Colors.transparent,
@@ -209,6 +212,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                   textStyle: FlutterFlowTheme.subtitle2.override(
                     fontFamily: 'Poppins',
                     color: Colors.white,
+                    fontSize: 20,
                   ),
                   borderSide: BorderSide(
                     color: Colors.transparent,
@@ -217,6 +221,38 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                   borderRadius: 12,
                 ),
                 loading: _loadingButton3,
+              ),
+            ),
+          ),
+          Align(
+            alignment: AlignmentDirectional(0, 0.5),
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
+              child: FFButtonWidget(
+                onPressed: () {
+                  print('Button pressed ...');
+                },
+                text: 'Delete your account',
+                icon: Icon(
+                  Icons.delete,
+                  size: 15,
+                ),
+                options: FFButtonOptions(
+                  width: double.infinity,
+                  height: 40,
+                  color: FlutterFlowTheme.primaryColor,
+                  textStyle: FlutterFlowTheme.subtitle2.override(
+                    fontFamily: 'Poppins',
+                    color: Colors.white,
+                    fontSize: 20,
+                  ),
+                  borderSide: BorderSide(
+                    color: Colors.transparent,
+                    width: 1,
+                  ),
+                  borderRadius: 12,
+                ),
+                loading: _loadingButton4,
               ),
             ),
           )

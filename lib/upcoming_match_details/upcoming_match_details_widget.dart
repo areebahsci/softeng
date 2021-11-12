@@ -384,6 +384,12 @@ class _UpcomingMatchDetailsWidgetState
                                     );
                                   },
                                 );
+                                final usersUpdateData = {
+                                  'gamesList': FieldValue.arrayRemove(
+                                      [widget.upcomingMatchDetails]),
+                                };
+                                await currentUserReference
+                                    .update(usersUpdateData);
                                 await Navigator.pushAndRemoveUntil(
                                   context,
                                   MaterialPageRoute(

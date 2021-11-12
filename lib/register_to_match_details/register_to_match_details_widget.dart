@@ -389,6 +389,12 @@ class _RegisterToMatchDetailsWidgetState
                                   await widget.registerToMatchDetails
                                       .update(gamesUpdateData);
                                 }
+                                final usersUpdateData = {
+                                  'gamesList': FieldValue.arrayUnion(
+                                      [widget.registerToMatchDetails]),
+                                };
+                                await currentUserReference
+                                    .update(usersUpdateData);
                                 await Navigator.push(
                                   context,
                                   MaterialPageRoute(
