@@ -106,7 +106,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
                         child: Container(
                           width: 100,
-                          height: 150,
+                          height: 165,
                           decoration: BoxDecoration(
                             color: Color(0xFFCECDCD),
                             boxShadow: [
@@ -132,12 +132,20 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
+                                        Text(
+                                          listViewGamesRecord.gameType,
+                                          style: FlutterFlowTheme.bodyText1
+                                              .override(
+                                            fontFamily: 'Poppins',
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
                                         Align(
                                           alignment: AlignmentDirectional(0, 0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 0, 5),
+                                                    0, 5, 0, 5),
                                             child: Text(
                                               listViewGamesRecord.location,
                                               textAlign: TextAlign.start,

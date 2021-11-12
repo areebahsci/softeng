@@ -148,7 +148,7 @@ class _RegisterToMatchDetailsWidgetState
                         Image.network(
                           'https://picsum.photos/seed/516/600',
                           width: 100,
-                          height: 200,
+                          height: 180,
                           fit: BoxFit.cover,
                         ),
                         Padding(
@@ -161,16 +161,45 @@ class _RegisterToMatchDetailsWidgetState
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(0, 0, 40, 0),
                                 child: Text(
-                                  'Location',
+                                  'Type of Game',
                                   style: FlutterFlowTheme.bodyText1,
                                 ),
+                              ),
+                              Text(
+                                listViewGamesRecord.gameType,
+                                style: FlutterFlowTheme.bodyText1.override(
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Text(
+                                'Location',
+                                style: FlutterFlowTheme.bodyText1,
                               ),
                               Expanded(
                                 child: Align(
                                   alignment: AlignmentDirectional(-0.15, 0),
-                                  child: Text(
-                                    registerToMatchDetailsGamesRecord.location,
-                                    style: FlutterFlowTheme.bodyText1,
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 0, 20, 0),
+                                    child: Text(
+                                      registerToMatchDetailsGamesRecord
+                                          .location,
+                                      style:
+                                          FlutterFlowTheme.bodyText1.override(
+                                        fontFamily: 'Poppins',
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
                                   ),
                                 ),
                               )
@@ -196,11 +225,15 @@ class _RegisterToMatchDetailsWidgetState
                                   alignment: AlignmentDirectional(-0.31, 0),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        5, 0, 0, 0),
+                                        0, 0, 79, 0),
                                     child: Text(
                                       '${dateTimeFormat('yMMMd', registerToMatchDetailsGamesRecord.date)}, ${registerToMatchDetailsGamesRecord.time}',
                                       textAlign: TextAlign.center,
-                                      style: FlutterFlowTheme.bodyText1,
+                                      style:
+                                          FlutterFlowTheme.bodyText1.override(
+                                        fontFamily: 'Poppins',
+                                        fontWeight: FontWeight.w600,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -227,10 +260,14 @@ class _RegisterToMatchDetailsWidgetState
                                   alignment: AlignmentDirectional(1, 0),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 130, 0),
+                                        0, 0, 155, 0),
                                     child: Text(
                                       '${registerToMatchDetailsGamesRecord.currentPlayers.toString()}/${registerToMatchDetailsGamesRecord.maxPlayers.toString()}',
-                                      style: FlutterFlowTheme.bodyText1,
+                                      style:
+                                          FlutterFlowTheme.bodyText1.override(
+                                        fontFamily: 'Poppins',
+                                        fontWeight: FontWeight.w600,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -255,9 +292,17 @@ class _RegisterToMatchDetailsWidgetState
                               Expanded(
                                 child: Align(
                                   alignment: AlignmentDirectional(-0.3, 0),
-                                  child: Text(
-                                    registerToMatchDetailsGamesRecord.host,
-                                    style: FlutterFlowTheme.bodyText1,
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 0, 85, 0),
+                                    child: Text(
+                                      registerToMatchDetailsGamesRecord.host,
+                                      style:
+                                          FlutterFlowTheme.bodyText1.override(
+                                        fontFamily: 'Poppins',
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
                                   ),
                                 ),
                               )
@@ -276,8 +321,14 @@ class _RegisterToMatchDetailsWidgetState
                           padding:
                               EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
                           child: AutoSizeText(
-                            registerToMatchDetailsGamesRecord.description,
-                            style: FlutterFlowTheme.bodyText1,
+                            valueOrDefault<String>(
+                              registerToMatchDetailsGamesRecord.description,
+                              'no description available',
+                            ),
+                            style: FlutterFlowTheme.bodyText1.override(
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
                         ),
                         Padding(
@@ -322,7 +373,7 @@ class _RegisterToMatchDetailsWidgetState
                         ),
                         Padding(
                           padding:
-                              EdgeInsetsDirectional.fromSTEB(20, 20, 20, 10),
+                              EdgeInsetsDirectional.fromSTEB(20, 0, 20, 10),
                           child: FFButtonWidget(
                             onPressed: () async {
                               setState(() => _loadingButton2 = true);

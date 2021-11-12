@@ -184,8 +184,7 @@ class _CreateAGameWidgetState extends State<CreateAGameWidget> {
                           'Karate',
                           'Horse racing',
                           'Running',
-                          'Cycling',
-                          ''
+                          'Cycling'
                         ].toList(),
                         onChanged: (val) => setState(() => dropDownValue = val),
                         width: 130,

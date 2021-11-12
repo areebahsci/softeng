@@ -130,8 +130,31 @@ class _UpcomingMatchDetailsWidgetState
                     Image.network(
                       'https://picsum.photos/seed/516/600',
                       width: 100,
-                      height: 200,
+                      height: 180,
                       fit: BoxFit.cover,
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 40, 0),
+                            child: Text(
+                              'Type of Game',
+                              style: FlutterFlowTheme.bodyText1,
+                            ),
+                          ),
+                          Text(
+                            listViewGamesRecord.gameType,
+                            style: FlutterFlowTheme.bodyText1.override(
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w600,
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
@@ -146,13 +169,14 @@ class _UpcomingMatchDetailsWidgetState
                               style: FlutterFlowTheme.bodyText1,
                             ),
                           ),
-                          Expanded(
-                            child: Align(
-                              alignment: AlignmentDirectional(-0.15, 0),
-                              child: Text(
-                                listViewGamesRecord.location,
-                                textAlign: TextAlign.center,
-                                style: FlutterFlowTheme.bodyText1,
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(38, 0, 0, 0),
+                            child: Text(
+                              listViewGamesRecord.location,
+                              style: FlutterFlowTheme.bodyText1.override(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w600,
                               ),
                             ),
                           )
@@ -177,11 +201,14 @@ class _UpcomingMatchDetailsWidgetState
                               alignment: AlignmentDirectional(-0.31, 0),
                               child: Padding(
                                 padding:
-                                    EdgeInsetsDirectional.fromSTEB(5, 0, 0, 0),
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 80, 0),
                                 child: Text(
                                   '${dateTimeFormat('yMMMd', listViewGamesRecord.date)}, ${listViewGamesRecord.time}',
                                   textAlign: TextAlign.center,
-                                  style: FlutterFlowTheme.bodyText1,
+                                  style: FlutterFlowTheme.bodyText1.override(
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                 ),
                               ),
                             ),
@@ -207,11 +234,14 @@ class _UpcomingMatchDetailsWidgetState
                               alignment: AlignmentDirectional(1, 0),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0, 0, 130, 0),
+                                    0, 0, 155, 0),
                                 child: Text(
                                   '${listViewGamesRecord.currentPlayers.toString()}/${listViewGamesRecord.maxPlayers.toString()}',
                                   textAlign: TextAlign.center,
-                                  style: FlutterFlowTheme.bodyText1,
+                                  style: FlutterFlowTheme.bodyText1.override(
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                 ),
                               ),
                             ),
@@ -237,11 +267,14 @@ class _UpcomingMatchDetailsWidgetState
                               alignment: AlignmentDirectional(-0.3, 0),
                               child: Padding(
                                 padding:
-                                    EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 80, 0),
                                 child: Text(
                                   listViewGamesRecord.host,
                                   textAlign: TextAlign.center,
-                                  style: FlutterFlowTheme.bodyText1,
+                                  style: FlutterFlowTheme.bodyText1.override(
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                 ),
                               ),
                             ),
@@ -259,8 +292,14 @@ class _UpcomingMatchDetailsWidgetState
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
                       child: AutoSizeText(
-                        listViewGamesRecord.description,
-                        style: FlutterFlowTheme.bodyText1,
+                        valueOrDefault<String>(
+                          listViewGamesRecord.description,
+                          'no description available ',
+                        ),
+                        style: FlutterFlowTheme.bodyText1.override(
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
                     Padding(
@@ -305,7 +344,7 @@ class _UpcomingMatchDetailsWidgetState
                     Visibility(
                       visible: (listViewGamesRecord.host) != (currentUserEmail),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 10),
+                        padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 10),
                         child: AuthUserStreamWidget(
                           child: FFButtonWidget(
                             onPressed: () async {
@@ -384,7 +423,7 @@ class _UpcomingMatchDetailsWidgetState
                     Visibility(
                       visible: (listViewGamesRecord.host) == (currentUserEmail),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 10),
+                        padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 10),
                         child: AuthUserStreamWidget(
                           child: FFButtonWidget(
                             onPressed: () async {

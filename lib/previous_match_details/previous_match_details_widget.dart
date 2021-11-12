@@ -137,6 +137,29 @@ class _PreviousMatchDetailsWidgetState
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(0, 0, 40, 0),
                             child: Text(
+                              'Type of Game',
+                              style: FlutterFlowTheme.bodyText1,
+                            ),
+                          ),
+                          Text(
+                            listViewGamesRecord.gameType,
+                            style: FlutterFlowTheme.bodyText1.override(
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w600,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 40, 0),
+                            child: Text(
                               'Location',
                               style: FlutterFlowTheme.bodyText1,
                             ),
@@ -146,10 +169,13 @@ class _PreviousMatchDetailsWidgetState
                               alignment: AlignmentDirectional(-0.15, 0),
                               child: Padding(
                                 padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 15, 0),
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 75, 0),
                                 child: Text(
                                   listViewGamesRecord.location,
-                                  style: FlutterFlowTheme.bodyText1,
+                                  style: FlutterFlowTheme.bodyText1.override(
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                 ),
                               ),
                             ),
@@ -173,9 +199,16 @@ class _PreviousMatchDetailsWidgetState
                           Expanded(
                             child: Align(
                               alignment: AlignmentDirectional(-0.31, 0),
-                              child: Text(
-                                '${dateTimeFormat('yMMMd', listViewGamesRecord.date)}, ${listViewGamesRecord.time}',
-                                style: FlutterFlowTheme.bodyText1,
+                              child: Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 75, 0),
+                                child: Text(
+                                  '${dateTimeFormat('yMMMd', listViewGamesRecord.date)}, ${listViewGamesRecord.time}',
+                                  style: FlutterFlowTheme.bodyText1.override(
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
                               ),
                             ),
                           )
@@ -200,10 +233,13 @@ class _PreviousMatchDetailsWidgetState
                               alignment: AlignmentDirectional(1, 0),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0, 0, 130, 0),
+                                    0, 0, 153, 0),
                                 child: Text(
                                   '${listViewGamesRecord.currentPlayers.toString()}/${listViewGamesRecord.maxPlayers.toString()}',
-                                  style: FlutterFlowTheme.bodyText1,
+                                  style: FlutterFlowTheme.bodyText1.override(
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                 ),
                               ),
                             ),
@@ -227,9 +263,16 @@ class _PreviousMatchDetailsWidgetState
                           Expanded(
                             child: Align(
                               alignment: AlignmentDirectional(-0.3, 0),
-                              child: Text(
-                                listViewGamesRecord.host,
-                                style: FlutterFlowTheme.bodyText1,
+                              child: Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 75, 0),
+                                child: Text(
+                                  listViewGamesRecord.host,
+                                  style: FlutterFlowTheme.bodyText1.override(
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
                               ),
                             ),
                           )
@@ -246,8 +289,14 @@ class _PreviousMatchDetailsWidgetState
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
                       child: AutoSizeText(
-                        listViewGamesRecord.description,
-                        style: FlutterFlowTheme.bodyText1,
+                        valueOrDefault<String>(
+                          listViewGamesRecord.description,
+                          'no description available',
+                        ),
+                        style: FlutterFlowTheme.bodyText1.override(
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
                     Padding(
