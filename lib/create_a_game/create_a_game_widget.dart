@@ -468,6 +468,12 @@ class _CreateAGameWidgetState extends State<CreateAGameWidget> {
                                 ),
                                 (r) => false,
                               );
+                              final usersUpdateData = {
+                                'gamesList':
+                                    FieldValue.arrayUnion([newGame.reference]),
+                              };
+                              await currentUserReference
+                                  .update(usersUpdateData);
 
                               setState(() {});
                             } finally {
