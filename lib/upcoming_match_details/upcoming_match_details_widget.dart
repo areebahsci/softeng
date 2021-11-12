@@ -46,45 +46,63 @@ class _UpcomingMatchDetailsWidgetState
             ),
             child: Padding(
               padding: EdgeInsetsDirectional.fromSTEB(2, 0, 0, 0),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(10, 35, 0, 0),
-                    child: InkWell(
-                      onTap: () async {
-                        await Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                NavBarPage(initialPage: 'home'),
-                          ),
-                          (r) => false,
-                        );
-                      },
-                      child: Icon(
-                        Icons.arrow_back,
-                        color: Colors.white,
-                        size: 24,
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: Align(
-                      alignment: AlignmentDirectional(0, 0.45),
-                      child: Text(
-                        'Game Title',
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.getFont(
-                          'Source Sans Pro',
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 30,
+              child: StreamBuilder<GamesRecord>(
+                stream: GamesRecord.getDocument(widget.upcomingMatchDetails),
+                builder: (context, snapshot) {
+                  // Customize what your widget looks like when it's loading.
+                  if (!snapshot.hasData) {
+                    return Center(
+                      child: SizedBox(
+                        width: 50,
+                        height: 50,
+                        child: CircularProgressIndicator(
+                          color: FlutterFlowTheme.primaryColor,
                         ),
                       ),
-                    ),
-                  )
-                ],
+                    );
+                  }
+                  final rowGamesRecord = snapshot.data;
+                  return Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 35, 0, 0),
+                        child: InkWell(
+                          onTap: () async {
+                            await Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    NavBarPage(initialPage: 'home'),
+                              ),
+                              (r) => false,
+                            );
+                          },
+                          child: Icon(
+                            Icons.arrow_back,
+                            color: Colors.white,
+                            size: 24,
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Align(
+                          alignment: AlignmentDirectional(0, 0.45),
+                          child: Text(
+                            rowGamesRecord.gameTitle,
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.getFont(
+                              'Source Sans Pro',
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 30,
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  );
+                },
               ),
             ),
           ),

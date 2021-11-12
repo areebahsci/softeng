@@ -43,46 +43,65 @@ class _PreviousMatchDetailsWidgetState
             ),
             child: Padding(
               padding: EdgeInsetsDirectional.fromSTEB(2, 0, 0, 0),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(10, 35, 0, 0),
-                    child: InkWell(
-                      onTap: () async {
-                        await Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => HistoryWidget(),
-                          ),
-                        );
-                      },
-                      child: Icon(
-                        Icons.arrow_back,
-                        color: Colors.white,
-                        size: 24,
+              child: StreamBuilder<GamesRecord>(
+                stream: GamesRecord.getDocument(widget.previousMatchDetails),
+                builder: (context, snapshot) {
+                  // Customize what your widget looks like when it's loading.
+                  if (!snapshot.hasData) {
+                    return Center(
+                      child: SizedBox(
+                        width: 50,
+                        height: 50,
+                        child: CircularProgressIndicator(
+                          color: FlutterFlowTheme.primaryColor,
+                        ),
                       ),
-                    ),
-                  ),
-                  Expanded(
-                    child: Align(
-                      alignment: AlignmentDirectional(0, 0.45),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
-                        child: Text(
-                          'Game Title',
-                          textAlign: TextAlign.center,
-                          style: GoogleFonts.getFont(
-                            'Source Sans Pro',
+                    );
+                  }
+                  final rowGamesRecord = snapshot.data;
+                  return Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 35, 0, 0),
+                        child: InkWell(
+                          onTap: () async {
+                            await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => HistoryWidget(),
+                              ),
+                            );
+                          },
+                          child: Icon(
+                            Icons.arrow_back,
                             color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 30,
+                            size: 24,
                           ),
                         ),
                       ),
-                    ),
-                  )
-                ],
+                      Expanded(
+                        child: Align(
+                          alignment: AlignmentDirectional(0, 0.45),
+                          child: Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
+                            child: Text(
+                              rowGamesRecord.gameTitle,
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.getFont(
+                                'Source Sans Pro',
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 30,
+                              ),
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  );
+                },
               ),
             ),
           ),
