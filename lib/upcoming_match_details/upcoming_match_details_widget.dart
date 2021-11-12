@@ -312,7 +312,9 @@ class _UpcomingMatchDetailsWidgetState
                               context,
                               MaterialPageRoute(
                                 builder: (context) =>
-                                    ListOfUsersRegisteredUpcomingWidget(),
+                                    ListOfUsersRegisteredUpcomingWidget(
+                                  gamesParameter: widget.upcomingMatchDetails,
+                                ),
                               ),
                             );
                           } finally {
