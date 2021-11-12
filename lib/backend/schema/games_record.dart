@@ -53,6 +53,9 @@ abstract class GamesRecord implements Built<GamesRecord, GamesRecordBuilder> {
   int get gameIsOver;
 
   @nullable
+  LatLng get geolocation;
+
+  @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
@@ -98,6 +101,7 @@ Map<String, dynamic> createGamesRecordData({
   String time,
   int currentPlayers,
   int gameIsOver,
+  LatLng geolocation,
 }) =>
     serializers.toFirestore(
         GamesRecord.serializer,
@@ -113,4 +117,5 @@ Map<String, dynamic> createGamesRecordData({
           ..time = time
           ..currentPlayers = currentPlayers
           ..currentPlayersList = null
-          ..gameIsOver = gameIsOver));
+          ..gameIsOver = gameIsOver
+          ..geolocation = geolocation));

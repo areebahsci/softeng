@@ -386,6 +386,7 @@ class _CreateAGameWidgetState extends State<CreateAGameWidget> {
                                   location: placePickerValue.address,
                                   currentPlayers: 1,
                                   gameIsOver: 0,
+                                  geolocation: placePickerValue.latLng,
                                 ),
                                 'currentPlayersList': FieldValue.arrayUnion(
                                     [currentUserReference]),
