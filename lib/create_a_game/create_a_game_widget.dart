@@ -377,13 +377,16 @@ class _CreateAGameWidgetState extends State<CreateAGameWidget> {
                               }
                               final gamesCreateData = {
                                 ...createGamesRecordData(
-                                  gameTitle: textController1.text,
+                                  gameTitle: valueOrDefault<String>(
+                                    textController1.text,
+                                    'no title',
+                                  ),
                                   host: currentUserEmail,
                                   description: textController5.text,
                                   maxPlayers: int.parse(textController4.text),
                                   date: calendarSelectedDay.start,
                                   time: textController2.text,
-                                  location: placePickerValue.address,
+                                  location: textController3.text,
                                   currentPlayers: 1,
                                   gameIsOver: 0,
                                   geolocation: placePickerValue.latLng,
