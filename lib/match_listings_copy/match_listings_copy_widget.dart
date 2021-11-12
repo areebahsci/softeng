@@ -4,18 +4,18 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../landing_page/landing_page_widget.dart';
-import '../register_to_match_details/register_to_match_details_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class MatchListingsWidget extends StatefulWidget {
-  MatchListingsWidget({Key key}) : super(key: key);
+class MatchListingsCopyWidget extends StatefulWidget {
+  MatchListingsCopyWidget({Key key}) : super(key: key);
 
   @override
-  _MatchListingsWidgetState createState() => _MatchListingsWidgetState();
+  _MatchListingsCopyWidgetState createState() =>
+      _MatchListingsCopyWidgetState();
 }
 
-class _MatchListingsWidgetState extends State<MatchListingsWidget> {
+class _MatchListingsCopyWidgetState extends State<MatchListingsCopyWidget> {
   TextEditingController textController;
   bool _loadingButton1 = false;
   bool _loadingButton2 = false;
@@ -264,11 +264,20 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
                           shape: BoxShape.rectangle,
                         ),
                         child: Padding(
-                          padding:
-                              EdgeInsetsDirectional.fromSTEB(15, 10, 0, 10),
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                                child: Image.network(
+                                  listViewGamesRecord.locationImage,
+                                  width: 100,
+                                  height: 100,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
                               Align(
                                 alignment: AlignmentDirectional(0, 0),
                                 child: Padding(
@@ -314,7 +323,7 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0, 0, 0, 5),
                                             child: Text(
-                                              '${dateTimeFormat('yMMMd', listViewGamesRecord.date)}, ${listViewGamesRecord.time}',
+                                              'Time',
                                               style: FlutterFlowTheme.bodyText1
                                                   .override(
                                                 fontFamily: 'Poppins',
@@ -354,7 +363,7 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0, 0, 0, 5),
                                             child: Text(
-                                              '${listViewGamesRecord.currentPlayers.toString()}/${listViewGamesRecord.maxPlayers.toString()}',
+                                              'max players',
                                               style: FlutterFlowTheme.bodyText1
                                                   .override(
                                                 fontFamily: 'Poppins',
@@ -374,24 +383,10 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0, 20, 0, 0),
-                                    child: InkWell(
-                                      onTap: () async {
-                                        await Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                RegisterToMatchDetailsWidget(
-                                              registerToMatchDetails:
-                                                  listViewGamesRecord.reference,
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                      child: Icon(
-                                        Icons.arrow_forward,
-                                        color: Color(0xFF00A898),
-                                        size: 24,
-                                      ),
+                                    child: Icon(
+                                      Icons.arrow_forward,
+                                      color: Color(0xFF00A898),
+                                      size: 24,
                                     ),
                                   ),
                                 ),

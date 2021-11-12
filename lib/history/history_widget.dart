@@ -118,20 +118,10 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                           ),
                           child: Padding(
                             padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
+                                EdgeInsetsDirectional.fromSTEB(15, 10, 0, 10),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      10, 0, 0, 0),
-                                  child: Image.network(
-                                    listViewGamesRecord.locationImage,
-                                    width: 100,
-                                    height: 100,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
                                 Align(
                                   alignment: AlignmentDirectional(0, 0),
                                   child: Padding(

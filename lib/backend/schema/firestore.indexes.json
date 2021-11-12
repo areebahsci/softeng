@@ -49,6 +49,24 @@
           "order": "ASCENDING"
         }
       ]
+    },
+    {
+      "collectionGroup": "games",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "GameIsOver",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "Date",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "Time",
+          "order": "ASCENDING"
+        }
+      ]
     }
   ]
 }

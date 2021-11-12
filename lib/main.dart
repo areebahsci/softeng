@@ -12,6 +12,7 @@ import 'home/home_widget.dart';
 import 'match_listings/match_listings_widget.dart';
 import 'profile/profile_widget.dart';
 import 'settings/settings_widget.dart';
+import 'match_listings_copy/match_listings_copy_widget.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -98,6 +99,7 @@ class _NavBarPageState extends State<NavBarPage> {
       'matchListings': MatchListingsWidget(),
       'profile': ProfileWidget(),
       'settings': SettingsWidget(),
+      'matchListingsCopy': MatchListingsCopyWidget(),
     };
     return Scaffold(
       body: tabs[_currentPage],
@@ -133,6 +135,14 @@ class _NavBarPageState extends State<NavBarPage> {
               size: 24,
             ),
             label: 'Settings',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.search,
+              size: 20,
+            ),
+            label: 'Match Listings',
             tooltip: '',
           )
         ],
