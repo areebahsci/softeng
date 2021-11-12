@@ -116,18 +116,16 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
-                                Expanded(
-                                    flex: 1,
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          10, 0, 0, 0),
-                                      child: Image.network(
-                                        listViewGamesRecord.locationImage,
-                                        width: 100,
-                                        height: 100,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    )),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      10, 0, 0, 0),
+                                  child: Image.network(
+                                    listViewGamesRecord.locationImage,
+                                    width: 100,
+                                    height: 100,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
                                 Align(
                                   alignment: AlignmentDirectional(0, 0),
                                   child: Padding(
@@ -171,7 +169,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0, 0, 0, 5),
                                               child: Text(
-                                                listViewGamesRecord.time,
+                                                'Time',
                                                 style: FlutterFlowTheme
                                                     .bodyText1
                                                     .override(
@@ -187,7 +185,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0, 0, 0, 5),
                                           child: Text(
-                                            listViewGamesRecord.gameTitle,
+                                            'game title',
                                             style: FlutterFlowTheme.bodyText1
                                                 .override(
                                               fontFamily: 'Poppins',
@@ -211,8 +209,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0, 0, 0, 5),
                                               child: Text(
-                                                listViewGamesRecord.maxPlayers
-                                                    .toString(),
+                                                'max players',
                                                 style: FlutterFlowTheme
                                                     .bodyText1
                                                     .override(

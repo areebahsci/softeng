@@ -249,7 +249,13 @@ class _HomeWidgetState extends State<HomeWidget> {
           ),
           Expanded(
             child: StreamBuilder<List<GamesRecord>>(
-              stream: queryGamesRecord(),
+              stream: queryGamesRecord(
+                queryBuilder: (gamesRecord) => gamesRecord
+                    .where('currentPlayersList',
+                        arrayContains: currentUserReference)
+                    .orderBy('Date')
+                    .orderBy('Time'),
+              ),
               builder: (context, snapshot) {
                 // Customize what your widget looks like when it's loading.
                 if (!snapshot.hasData) {
