@@ -83,18 +83,14 @@ class _PreviousMatchDetailsWidgetState
                       Expanded(
                         child: Align(
                           alignment: AlignmentDirectional(0, 0.45),
-                          child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
-                            child: Text(
-                              rowGamesRecord.gameTitle,
-                              textAlign: TextAlign.center,
-                              style: GoogleFonts.getFont(
-                                'Source Sans Pro',
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 30,
-                              ),
+                          child: Text(
+                            rowGamesRecord.gameTitle,
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.getFont(
+                              'Source Sans Pro',
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 30,
                             ),
                           ),
                         ),
