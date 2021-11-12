@@ -460,13 +460,6 @@ class _CreateAGameWidgetState extends State<CreateAGameWidget> {
                               await gamesRecordReference.set(gamesCreateData);
                               newGame = GamesRecord.getDocumentFromData(
                                   gamesCreateData, gamesRecordReference);
-
-                              final usersUpdateData = {
-                                'gamesList':
-                                    FieldValue.arrayUnion([newGame.reference]),
-                              };
-                              await currentUserReference
-                                  .update(usersUpdateData);
                               await Navigator.pushAndRemoveUntil(
                                 context,
                                 MaterialPageRoute(
