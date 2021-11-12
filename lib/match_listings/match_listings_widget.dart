@@ -101,7 +101,7 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
                     color: Color(0xFFEEEEEE),
                   ),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 5, 2, 0),
                     child: FFButtonWidget(
                       onPressed: () {
                         print('Button pressed ...');
