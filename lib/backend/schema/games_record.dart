@@ -56,6 +56,9 @@ abstract class GamesRecord implements Built<GamesRecord, GamesRecordBuilder> {
   LatLng get geolocation;
 
   @nullable
+  String get gameType;
+
+  @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
@@ -70,7 +73,8 @@ abstract class GamesRecord implements Built<GamesRecord, GamesRecordBuilder> {
     ..time = ''
     ..currentPlayers = 0
     ..currentPlayersList = ListBuilder()
-    ..gameIsOver = 0;
+    ..gameIsOver = 0
+    ..gameType = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('games');
@@ -102,6 +106,7 @@ Map<String, dynamic> createGamesRecordData({
   int currentPlayers,
   int gameIsOver,
   LatLng geolocation,
+  String gameType,
 }) =>
     serializers.toFirestore(
         GamesRecord.serializer,
@@ -118,4 +123,5 @@ Map<String, dynamic> createGamesRecordData({
           ..currentPlayers = currentPlayers
           ..currentPlayersList = null
           ..gameIsOver = gameIsOver
-          ..geolocation = geolocation));
+          ..geolocation = geolocation
+          ..gameType = gameType));

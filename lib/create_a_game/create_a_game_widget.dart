@@ -1,6 +1,8 @@
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_calendar.dart';
+import '../flutter_flow/flutter_flow_count_controller.dart';
+import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_place_picker.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -10,6 +12,7 @@ import '../main.dart';
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CreateAGameWidget extends StatefulWidget {
@@ -21,12 +24,13 @@ class CreateAGameWidget extends StatefulWidget {
 
 class _CreateAGameWidgetState extends State<CreateAGameWidget> {
   DateTimeRange calendarSelectedDay;
+  String dropDownValue;
   TextEditingController textController1;
   TextEditingController textController2;
   var placePickerValue = FFPlace();
   TextEditingController textController3;
+  int countControllerValue;
   TextEditingController textController4;
-  TextEditingController textController5;
   bool _loadingButton = false;
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -42,7 +46,6 @@ class _CreateAGameWidgetState extends State<CreateAGameWidget> {
     textController2 = TextEditingController();
     textController3 = TextEditingController();
     textController4 = TextEditingController();
-    textController5 = TextEditingController();
   }
 
   @override
@@ -153,6 +156,51 @@ class _CreateAGameWidgetState extends State<CreateAGameWidget> {
                           ),
                           style: FlutterFlowTheme.bodyText1,
                         ),
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(2, 20, 0, 0),
+                        child: Text(
+                          'Game Type',
+                          style: FlutterFlowTheme.bodyText1,
+                        ),
+                      ),
+                      FlutterFlowDropDown(
+                        options: [
+                          'Football',
+                          'Basketball',
+                          'Tennis',
+                          'Squash',
+                          'Baseball',
+                          'Golf',
+                          'Volleyball',
+                          'Badminton',
+                          'Boxing',
+                          'Table Tennis',
+                          'Cricket',
+                          'Rugby',
+                          'Pool',
+                          'Bowling',
+                          'Ice Hockey',
+                          'Karate',
+                          'Horse racing',
+                          'Running',
+                          'Cycling',
+                          ''
+                        ].toList(),
+                        onChanged: (val) => setState(() => dropDownValue = val),
+                        width: 130,
+                        height: 40,
+                        textStyle: FlutterFlowTheme.bodyText1.override(
+                          fontFamily: 'Poppins',
+                          color: Colors.black,
+                        ),
+                        fillColor: Color(0xFFCECDCD),
+                        elevation: 2,
+                        borderColor: Colors.transparent,
+                        borderWidth: 0,
+                        borderRadius: 0,
+                        margin: EdgeInsetsDirectional.fromSTEB(8, 4, 8, 4),
+                        hidesUnderline: true,
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(2, 20, 0, 0),
@@ -296,38 +344,46 @@ class _CreateAGameWidgetState extends State<CreateAGameWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                        child: TextFormField(
-                          controller: textController4,
-                          obscureText: false,
-                          decoration: InputDecoration(
-                            isDense: true,
-                            hintText: 'Enter max number of people...',
-                            hintStyle: FlutterFlowTheme.bodyText1,
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0xFF595656),
-                                width: 1,
-                              ),
-                              borderRadius: BorderRadius.circular(7),
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                        child: Container(
+                          width: 160,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            color: Color(0xFFCFC9C9),
+                            borderRadius: BorderRadius.circular(25),
+                            shape: BoxShape.rectangle,
+                            border: Border.all(
+                              color: Color(0xFF9E9E9E),
+                              width: 1,
                             ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0xFF595656),
-                                width: 1,
-                              ),
-                              borderRadius: BorderRadius.circular(7),
-                            ),
-                            filled: true,
                           ),
-                          style: FlutterFlowTheme.bodyText1,
-                          validator: (val) {
-                            if (val.isEmpty) {
-                              return 'This field is required!';
-                            }
-
-                            return null;
-                          },
+                          child: FlutterFlowCountController(
+                            decrementIconBuilder: (enabled) => FaIcon(
+                              FontAwesomeIcons.minus,
+                              color: enabled
+                                  ? Color(0xDD000000)
+                                  : Color(0xFFEEEEEE),
+                              size: 20,
+                            ),
+                            incrementIconBuilder: (enabled) => FaIcon(
+                              FontAwesomeIcons.plus,
+                              color: enabled ? Colors.blue : Color(0xFFEEEEEE),
+                              size: 20,
+                            ),
+                            countBuilder: (count) => Text(
+                              count.toString(),
+                              style: GoogleFonts.getFont(
+                                'Roboto',
+                                color: Colors.black,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 16,
+                              ),
+                            ),
+                            count: countControllerValue ??= 0,
+                            updateCount: (count) =>
+                                setState(() => countControllerValue = count),
+                            stepSize: 1,
+                          ),
                         ),
                       ),
                       Padding(
@@ -340,7 +396,7 @@ class _CreateAGameWidgetState extends State<CreateAGameWidget> {
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                         child: TextFormField(
-                          controller: textController5,
+                          controller: textController4,
                           obscureText: false,
                           decoration: InputDecoration(
                             isDense: true,
@@ -382,14 +438,15 @@ class _CreateAGameWidgetState extends State<CreateAGameWidget> {
                                     'no title',
                                   ),
                                   host: currentUserEmail,
-                                  description: textController5.text,
-                                  maxPlayers: int.parse(textController4.text),
+                                  description: textController4.text,
+                                  maxPlayers: countControllerValue,
                                   date: calendarSelectedDay.start,
                                   time: textController2.text,
                                   location: textController3.text,
                                   currentPlayers: 1,
                                   gameIsOver: 0,
                                   geolocation: placePickerValue.latLng,
+                                  gameType: dropDownValue,
                                 ),
                                 'currentPlayersList': FieldValue.arrayUnion(
                                     [currentUserReference]),

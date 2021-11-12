@@ -41,12 +41,13 @@ class _ListOfUsersRegisteredRegisterWidgetState
                       padding: EdgeInsetsDirectional.fromSTEB(10, 35, 0, 0),
                       child: InkWell(
                         onTap: () async {
-                          await Navigator.push(
+                          await Navigator.pushAndRemoveUntil(
                             context,
                             MaterialPageRoute(
                               builder: (context) =>
                                   RegisterToMatchDetailsWidget(),
                             ),
+                            (r) => false,
                           );
                         },
                         child: Icon(
