@@ -385,6 +385,7 @@ class _CreateAGameWidgetState extends State<CreateAGameWidget> {
                                   time: textController2.text,
                                   location: placePickerValue.address,
                                   currentPlayers: 1,
+                                  gameIsOver: 0,
                                 ),
                                 'currentPlayersList': FieldValue.arrayUnion(
                                     [currentUserReference]),

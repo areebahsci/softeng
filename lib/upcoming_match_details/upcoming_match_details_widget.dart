@@ -1,14 +1,22 @@
+import '../auth/auth_util.dart';
+import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../list_of_users_registered_upcoming/list_of_users_registered_upcoming_widget.dart';
 import '../main.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class UpcomingMatchDetailsWidget extends StatefulWidget {
-  UpcomingMatchDetailsWidget({Key key}) : super(key: key);
+  UpcomingMatchDetailsWidget({
+    Key key,
+    this.upcomingMatchDetails,
+  }) : super(key: key);
+
+  final DocumentReference upcomingMatchDetails;
 
   @override
   _UpcomingMatchDetailsWidgetState createState() =>
@@ -19,6 +27,7 @@ class _UpcomingMatchDetailsWidgetState
     extends State<UpcomingMatchDetailsWidget> {
   bool _loadingButton1 = false;
   bool _loadingButton2 = false;
+  bool _loadingButton3 = false;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -80,194 +89,354 @@ class _UpcomingMatchDetailsWidgetState
             ),
           ),
           Expanded(
-            child: ListView(
-              padding: EdgeInsets.zero,
-              scrollDirection: Axis.vertical,
-              children: [
-                Image.network(
-                  'https://picsum.photos/seed/516/600',
-                  width: 100,
-                  height: 200,
-                  fit: BoxFit.cover,
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 40, 0),
-                        child: Text(
-                          'Location',
-                          style: FlutterFlowTheme.bodyText1,
-                        ),
+            child: StreamBuilder<GamesRecord>(
+              stream: GamesRecord.getDocument(widget.upcomingMatchDetails),
+              builder: (context, snapshot) {
+                // Customize what your widget looks like when it's loading.
+                if (!snapshot.hasData) {
+                  return Center(
+                    child: SizedBox(
+                      width: 50,
+                      height: 50,
+                      child: CircularProgressIndicator(
+                        color: FlutterFlowTheme.primaryColor,
                       ),
-                      Expanded(
-                        child: Align(
-                          alignment: AlignmentDirectional(-0.15, 0),
-                          child: Text(
-                            'LocationVariable',
-                            style: FlutterFlowTheme.bodyText1,
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 65, 0),
-                        child: Text(
-                          'Time',
-                          style: FlutterFlowTheme.bodyText1,
-                        ),
-                      ),
-                      Expanded(
-                        child: Align(
-                          alignment: AlignmentDirectional(-0.31, 0),
-                          child: Text(
-                            'TimeVariable',
-                            style: FlutterFlowTheme.bodyText1,
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 23, 0),
-                        child: Text(
-                          'Amount  of\npeople',
-                          style: FlutterFlowTheme.bodyText1,
-                        ),
-                      ),
-                      Expanded(
-                        child: Align(
-                          alignment: AlignmentDirectional(1, 0),
-                          child: Text(
-                            'Peopleplaying/totalpeople',
-                            style: FlutterFlowTheme.bodyText1,
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 30, 0),
-                        child: Text(
-                          'Hosted By',
-                          style: FlutterFlowTheme.bodyText1,
-                        ),
-                      ),
-                      Expanded(
-                        child: Align(
-                          alignment: AlignmentDirectional(-0.3, 0),
-                          child: Text(
-                            'HostVariable',
-                            style: FlutterFlowTheme.bodyText1,
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
-                  child: Text(
-                    'Description',
-                    style: FlutterFlowTheme.bodyText1,
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
-                  child: AutoSizeText(
-                    'Hello\nWorld',
-                    style: FlutterFlowTheme.bodyText1,
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 10),
-                  child: FFButtonWidget(
-                    onPressed: () async {
-                      setState(() => _loadingButton1 = true);
-                      try {
-                        await Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                ListOfUsersRegisteredUpcomingWidget(),
-                          ),
-                        );
-                      } finally {
-                        setState(() => _loadingButton1 = false);
-                      }
-                    },
-                    text: 'VIEW PLAYERS LIST',
-                    icon: Icon(
-                      Icons.people,
-                      size: 15,
                     ),
-                    options: FFButtonOptions(
-                      width: 350,
-                      height: 40,
-                      color: Color(0xFF9800A8),
-                      textStyle: FlutterFlowTheme.subtitle2.override(
-                        fontFamily: 'Poppins',
-                        color: Colors.white,
-                      ),
-                      borderSide: BorderSide(
-                        color: Colors.transparent,
-                        width: 1,
-                      ),
-                      borderRadius: 12,
+                  );
+                }
+                final listViewGamesRecord = snapshot.data;
+                return ListView(
+                  padding: EdgeInsets.zero,
+                  scrollDirection: Axis.vertical,
+                  children: [
+                    Image.network(
+                      'https://picsum.photos/seed/516/600',
+                      width: 100,
+                      height: 200,
+                      fit: BoxFit.cover,
                     ),
-                    loading: _loadingButton1,
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 10),
-                  child: FFButtonWidget(
-                    onPressed: () {
-                      print('Button pressed ...');
-                    },
-                    text: 'LEAVE GAME',
-                    icon: Icon(
-                      Icons.cancel_outlined,
-                      size: 15,
-                    ),
-                    options: FFButtonOptions(
-                      width: 350,
-                      height: 40,
-                      color: Color(0xFF9800A8),
-                      textStyle: FlutterFlowTheme.subtitle2.override(
-                        fontFamily: 'Poppins',
-                        color: Colors.white,
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 40, 0),
+                            child: Text(
+                              'Location',
+                              style: FlutterFlowTheme.bodyText1,
+                            ),
+                          ),
+                          Expanded(
+                            child: Align(
+                              alignment: AlignmentDirectional(-0.15, 0),
+                              child: Text(
+                                listViewGamesRecord.location,
+                                textAlign: TextAlign.center,
+                                style: FlutterFlowTheme.bodyText1,
+                              ),
+                            ),
+                          )
+                        ],
                       ),
-                      borderSide: BorderSide(
-                        color: Colors.transparent,
-                        width: 1,
-                      ),
-                      borderRadius: 12,
                     ),
-                    loading: _loadingButton2,
-                  ),
-                )
-              ],
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 65, 0),
+                            child: Text(
+                              'Time',
+                              style: FlutterFlowTheme.bodyText1,
+                            ),
+                          ),
+                          Expanded(
+                            child: Align(
+                              alignment: AlignmentDirectional(-0.31, 0),
+                              child: Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(5, 0, 0, 0),
+                                child: Text(
+                                  '${dateTimeFormat('yMMMd', listViewGamesRecord.date)}, ${listViewGamesRecord.time}',
+                                  textAlign: TextAlign.center,
+                                  style: FlutterFlowTheme.bodyText1,
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 23, 0),
+                            child: Text(
+                              'Amount  of\npeople',
+                              style: FlutterFlowTheme.bodyText1,
+                            ),
+                          ),
+                          Expanded(
+                            child: Align(
+                              alignment: AlignmentDirectional(1, 0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0, 0, 130, 0),
+                                child: Text(
+                                  '${listViewGamesRecord.currentPlayers.toString()}/${listViewGamesRecord.maxPlayers.toString()}',
+                                  textAlign: TextAlign.center,
+                                  style: FlutterFlowTheme.bodyText1,
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 30, 0),
+                            child: Text(
+                              'Hosted By',
+                              style: FlutterFlowTheme.bodyText1,
+                            ),
+                          ),
+                          Expanded(
+                            child: Align(
+                              alignment: AlignmentDirectional(-0.3, 0),
+                              child: Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                                child: Text(
+                                  listViewGamesRecord.host,
+                                  textAlign: TextAlign.center,
+                                  style: FlutterFlowTheme.bodyText1,
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
+                      child: Text(
+                        'Description',
+                        style: FlutterFlowTheme.bodyText1,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
+                      child: AutoSizeText(
+                        listViewGamesRecord.description,
+                        style: FlutterFlowTheme.bodyText1,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 10),
+                      child: FFButtonWidget(
+                        onPressed: () async {
+                          setState(() => _loadingButton1 = true);
+                          try {
+                            await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    ListOfUsersRegisteredUpcomingWidget(),
+                              ),
+                            );
+                          } finally {
+                            setState(() => _loadingButton1 = false);
+                          }
+                        },
+                        text: 'VIEW PLAYERS LIST',
+                        icon: Icon(
+                          Icons.people,
+                          size: 15,
+                        ),
+                        options: FFButtonOptions(
+                          width: 350,
+                          height: 40,
+                          color: Color(0xFF9800A8),
+                          textStyle: FlutterFlowTheme.subtitle2.override(
+                            fontFamily: 'Poppins',
+                            color: Colors.white,
+                          ),
+                          borderSide: BorderSide(
+                            color: Colors.transparent,
+                            width: 1,
+                          ),
+                          borderRadius: 12,
+                        ),
+                        loading: _loadingButton1,
+                      ),
+                    ),
+                    Visibility(
+                      visible: (listViewGamesRecord.host) != (currentUserEmail),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 10),
+                        child: AuthUserStreamWidget(
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              setState(() => _loadingButton2 = true);
+                              try {
+                                await showDialog(
+                                  context: context,
+                                  builder: (alertDialogContext) {
+                                    return AlertDialog(
+                                      title: Text('LEAVING GAME!'),
+                                      content: Text(
+                                          'Are you sure you want to leave the game?'),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () =>
+                                              Navigator.pop(alertDialogContext),
+                                          child: Text('Cancel'),
+                                        ),
+                                        TextButton(
+                                          onPressed: () async {
+                                            Navigator.pop(alertDialogContext);
+
+                                            final gamesUpdateData = {
+                                              'currentPlayers':
+                                                  FieldValue.increment(-1),
+                                              'currentPlayersList':
+                                                  FieldValue.arrayRemove(
+                                                      [currentUserReference]),
+                                            };
+                                            await widget.upcomingMatchDetails
+                                                .update(gamesUpdateData);
+                                            ;
+                                          },
+                                          child: Text('Confirm'),
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                );
+                                await Navigator.pushAndRemoveUntil(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        NavBarPage(initialPage: 'home'),
+                                  ),
+                                  (r) => false,
+                                );
+                              } finally {
+                                setState(() => _loadingButton2 = false);
+                              }
+                            },
+                            text: 'LEAVE GAME',
+                            icon: Icon(
+                              Icons.cancel_outlined,
+                              size: 15,
+                            ),
+                            options: FFButtonOptions(
+                              width: 350,
+                              height: 40,
+                              color: Color(0xFF9800A8),
+                              textStyle: FlutterFlowTheme.subtitle2.override(
+                                fontFamily: 'Poppins',
+                                color: Colors.white,
+                              ),
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1,
+                              ),
+                              borderRadius: 12,
+                            ),
+                            loading: _loadingButton2,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Visibility(
+                      visible: (listViewGamesRecord.host) == (currentUserEmail),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 10),
+                        child: AuthUserStreamWidget(
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              setState(() => _loadingButton3 = true);
+                              try {
+                                await showDialog(
+                                  context: context,
+                                  builder: (alertDialogContext) {
+                                    return AlertDialog(
+                                      title: Text('LEAVING GAME!'),
+                                      content: Text(
+                                          'Are you sure you want to delete the game?'),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () =>
+                                              Navigator.pop(alertDialogContext),
+                                          child: Text('Cancel'),
+                                        ),
+                                        TextButton(
+                                          onPressed: () async {
+                                            Navigator.pop(alertDialogContext);
+                                            await widget.upcomingMatchDetails
+                                                .delete();
+                                            ;
+                                          },
+                                          child: Text('Confirm'),
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                );
+                                await Navigator.pushAndRemoveUntil(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        NavBarPage(initialPage: 'home'),
+                                  ),
+                                  (r) => false,
+                                );
+                              } finally {
+                                setState(() => _loadingButton3 = false);
+                              }
+                            },
+                            text: 'DELETE GAME',
+                            icon: Icon(
+                              Icons.cancel_outlined,
+                              size: 15,
+                            ),
+                            options: FFButtonOptions(
+                              width: 350,
+                              height: 40,
+                              color: Color(0xFF9800A8),
+                              textStyle: FlutterFlowTheme.subtitle2.override(
+                                fontFamily: 'Poppins',
+                                color: Colors.white,
+                              ),
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1,
+                              ),
+                              borderRadius: 12,
+                            ),
+                            loading: _loadingButton3,
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                );
+              },
             ),
           )
         ],

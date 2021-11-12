@@ -222,7 +222,12 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
           ),
           Expanded(
             child: StreamBuilder<List<GamesRecord>>(
-              stream: queryGamesRecord(),
+              stream: queryGamesRecord(
+                queryBuilder: (gamesRecord) => gamesRecord
+                    .where('GameIsOver', isEqualTo: 0)
+                    .orderBy('Date')
+                    .orderBy('Time'),
+              ),
               builder: (context, snapshot) {
                 // Customize what your widget looks like when it's loading.
                 if (!snapshot.hasData) {
@@ -318,7 +323,7 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0, 0, 0, 5),
                                             child: Text(
-                                              listViewGamesRecord.time,
+                                              '${dateTimeFormat('yMMMd', listViewGamesRecord.date)}, ${listViewGamesRecord.time}',
                                               style: FlutterFlowTheme.bodyText1
                                                   .override(
                                                 fontFamily: 'Poppins',
@@ -358,7 +363,7 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0, 0, 0, 5),
                                             child: Text(
-                                              'max players',
+                                              '${listViewGamesRecord.currentPlayers.toString()}/${listViewGamesRecord.maxPlayers.toString()}',
                                               style: FlutterFlowTheme.bodyText1
                                                   .override(
                                                 fontFamily: 'Poppins',
@@ -384,7 +389,10 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
                                           context,
                                           MaterialPageRoute(
                                             builder: (context) =>
-                                                RegisterToMatchDetailsWidget(),
+                                                RegisterToMatchDetailsWidget(
+                                              registerToMatchDetails:
+                                                  listViewGamesRecord.reference,
+                                            ),
                                           ),
                                         );
                                       },

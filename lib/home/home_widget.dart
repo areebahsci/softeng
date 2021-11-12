@@ -342,7 +342,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0, 0, 0, 5),
                                             child: Text(
-                                              listViewGamesRecord.time,
+                                              '${dateTimeFormat('yMMMd', listViewGamesRecord.date)}, ${listViewGamesRecord.time}',
                                               style: FlutterFlowTheme.bodyText1
                                                   .override(
                                                 fontFamily: 'Poppins',
@@ -382,8 +382,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0, 0, 0, 5),
                                             child: Text(
-                                              listViewGamesRecord.maxPlayers
-                                                  .toString(),
+                                              '${listViewGamesRecord.currentPlayers.toString()}/${listViewGamesRecord.maxPlayers.toString()}',
                                               style: FlutterFlowTheme.bodyText1
                                                   .override(
                                                 fontFamily: 'Poppins',
@@ -409,7 +408,10 @@ class _HomeWidgetState extends State<HomeWidget> {
                                           context,
                                           MaterialPageRoute(
                                             builder: (context) =>
-                                                UpcomingMatchDetailsWidget(),
+                                                UpcomingMatchDetailsWidget(
+                                              upcomingMatchDetails:
+                                                  listViewGamesRecord.reference,
+                                            ),
                                           ),
                                         );
                                       },

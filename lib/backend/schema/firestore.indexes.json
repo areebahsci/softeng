@@ -5,6 +5,24 @@
       "queryScope": "COLLECTION",
       "fields": [
         {
+          "fieldPath": "GameIsOver",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "Date",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "Time",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "games",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
           "fieldPath": "currentPlayersList",
           "arrayConfig": "CONTAINS"
         },
@@ -14,6 +32,20 @@
         },
         {
           "fieldPath": "Time",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "games",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "currentPlayersList",
+          "arrayConfig": "CONTAINS"
+        },
+        {
+          "fieldPath": "GameIsOver",
           "order": "ASCENDING"
         }
       ]

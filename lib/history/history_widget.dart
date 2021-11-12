@@ -1,3 +1,4 @@
+import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -74,7 +75,12 @@ class _HistoryWidgetState extends State<HistoryWidget> {
             child: Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
               child: StreamBuilder<List<GamesRecord>>(
-                stream: queryGamesRecord(),
+                stream: queryGamesRecord(
+                  queryBuilder: (gamesRecord) => gamesRecord
+                      .where('currentPlayersList',
+                          arrayContains: currentUserReference)
+                      .where('GameIsOver', isEqualTo: 1),
+                ),
                 builder: (context, snapshot) {
                   // Customize what your widget looks like when it's loading.
                   if (!snapshot.hasData) {
@@ -143,7 +149,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0, 0, 0, 5),
                                             child: Text(
-                                              'Location',
+                                              listViewGamesRecord.location,
                                               textAlign: TextAlign.start,
                                               style: FlutterFlowTheme.bodyText1
                                                   .override(
@@ -169,7 +175,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0, 0, 0, 5),
                                               child: Text(
-                                                'Time',
+                                                '${dateTimeFormat('yMMMd', listViewGamesRecord.date)}, ${listViewGamesRecord.time}',
                                                 style: FlutterFlowTheme
                                                     .bodyText1
                                                     .override(
@@ -185,7 +191,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0, 0, 0, 5),
                                           child: Text(
-                                            'game title',
+                                            listViewGamesRecord.gameTitle,
                                             style: FlutterFlowTheme.bodyText1
                                                 .override(
                                               fontFamily: 'Poppins',
@@ -209,7 +215,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0, 0, 0, 5),
                                               child: Text(
-                                                'max players',
+                                                '${listViewGamesRecord.currentPlayers.toString()}/${listViewGamesRecord.maxPlayers.toString()}',
                                                 style: FlutterFlowTheme
                                                     .bodyText1
                                                     .override(
@@ -236,7 +242,11 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                             context,
                                             MaterialPageRoute(
                                               builder: (context) =>
-                                                  PreviousMatchDetailsWidget(),
+                                                  PreviousMatchDetailsWidget(
+                                                previousMatchDetails:
+                                                    listViewGamesRecord
+                                                        .reference,
+                                              ),
                                             ),
                                           );
                                         },
