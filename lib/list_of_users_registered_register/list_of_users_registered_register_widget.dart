@@ -2,11 +2,17 @@ import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../register_to_match_details/register_to_match_details_widget.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ListOfUsersRegisteredRegisterWidget extends StatefulWidget {
-  ListOfUsersRegisteredRegisterWidget({Key key}) : super(key: key);
+  ListOfUsersRegisteredRegisterWidget({
+    Key key,
+    this.gamesParameter,
+  }) : super(key: key);
+
+  final DocumentReference gamesParameter;
 
   @override
   _ListOfUsersRegisteredRegisterWidgetState createState() =>
@@ -45,7 +51,9 @@ class _ListOfUsersRegisteredRegisterWidgetState
                             context,
                             MaterialPageRoute(
                               builder: (context) =>
-                                  RegisterToMatchDetailsWidget(),
+                                  RegisterToMatchDetailsWidget(
+                                registerToMatchDetails: widget.gamesParameter,
+                              ),
                             ),
                             (r) => false,
                           );

@@ -309,7 +309,9 @@ class _PreviousMatchDetailsWidgetState
                               context,
                               MaterialPageRoute(
                                 builder: (context) =>
-                                    ListOfUsersRegisteredUpcomingWidget(),
+                                    ListOfUsersRegisteredUpcomingWidget(
+                                  gamesParameter: widget.previousMatchDetails,
+                                ),
                               ),
                             );
                           } finally {

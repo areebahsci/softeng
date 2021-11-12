@@ -2,11 +2,17 @@ import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../previous_match_details/previous_match_details_widget.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ListOfUsersRegisteredPreviousWidget extends StatefulWidget {
-  ListOfUsersRegisteredPreviousWidget({Key key}) : super(key: key);
+  ListOfUsersRegisteredPreviousWidget({
+    Key key,
+    this.gamesParameter,
+  }) : super(key: key);
+
+  final DocumentReference gamesParameter;
 
   @override
   _ListOfUsersRegisteredPreviousWidgetState createState() =>
@@ -44,8 +50,9 @@ class _ListOfUsersRegisteredPreviousWidgetState
                           await Navigator.pushAndRemoveUntil(
                             context,
                             MaterialPageRoute(
-                              builder: (context) =>
-                                  PreviousMatchDetailsWidget(),
+                              builder: (context) => PreviousMatchDetailsWidget(
+                                previousMatchDetails: widget.gamesParameter,
+                              ),
                             ),
                             (r) => false,
                           );

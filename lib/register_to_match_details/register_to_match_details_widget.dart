@@ -342,7 +342,10 @@ class _RegisterToMatchDetailsWidgetState
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) =>
-                                        ListOfUsersRegisteredUpcomingWidget(),
+                                        ListOfUsersRegisteredUpcomingWidget(
+                                      gamesParameter:
+                                          widget.registerToMatchDetails,
+                                    ),
                                   ),
                                 );
                               } finally {
