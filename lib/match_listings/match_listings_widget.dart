@@ -8,6 +8,7 @@ import '../register_to_match_details/register_to_match_details_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+// ignore: must_be_immutable
 class MatchListingsWidget extends StatefulWidget {
   MatchListingsWidget({Key key}) : super(key: key);
 
@@ -20,6 +21,15 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
   bool _loadingButton1 = false;
   bool _loadingButton2 = false;
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  List listView;
+  callback(List listview) {
+    this.listView = listview;
+  }
+
+  resetcallback(List listview) {
+    listview = this.listView;
+  }
 
   @override
   void initState() {
@@ -144,6 +154,91 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
                       child: FFButtonWidget(
                         onPressed: () {
                           print('Button pressed ...');
+                          showDialog(
+                            context: context,
+                            builder: (context) {
+                              return Dialog(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(40)),
+                                elevation: 16,
+                                child: Container(
+                                  child: ListView(
+                                    shrinkWrap: true,
+                                    children: <Widget>[
+                                      SizedBox(height: 20),
+                                      Center(child: Text('SORT BY:')),
+                                      SizedBox(height: 20),
+                                      Row(
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    15, 15, 15, 15),
+                                            child: FFButtonWidget(
+                                              text: "Time",
+                                              onPressed: () {
+                                                listView.sort((a, b) =>
+                                                    b.time.compareTo(a.time));
+                                              },
+                                              options: FFButtonOptions(
+                                                width: 130,
+                                                height: 40,
+                                                color: Color(0xFF9800A8),
+                                                textStyle: FlutterFlowTheme
+                                                    .subtitle2
+                                                    .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: Colors.white,
+                                                  fontSize: 18,
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                                borderSide: BorderSide(
+                                                  color: Colors.transparent,
+                                                  width: 1,
+                                                ),
+                                                borderRadius: 12,
+                                              ),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    15, 15, 15, 15),
+                                            child: FFButtonWidget(
+                                              text: "Current Players",
+                                              onPressed: () {
+                                                listView.sort((a, b) =>
+                                                    b.currentPlayers.compareTo(
+                                                        a.currentPlayers));
+                                              },
+                                              options: FFButtonOptions(
+                                                width: 130,
+                                                height: 40,
+                                                color: Color(0xFF9800A8),
+                                                textStyle: FlutterFlowTheme
+                                                    .subtitle2
+                                                    .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: Colors.white,
+                                                  fontSize: 18,
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                                borderSide: BorderSide(
+                                                  color: Colors.transparent,
+                                                  width: 1,
+                                                ),
+                                                borderRadius: 12,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              );
+                            },
+                          );
                         },
                         text: 'SORT',
                         icon: Icon(
@@ -242,6 +337,7 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
                   );
                 }
                 List<GamesRecord> listViewGamesRecordList = snapshot.data;
+                callback(listViewGamesRecordList);
                 return ListView.builder(
                   padding: EdgeInsets.zero,
                   scrollDirection: Axis.vertical,
