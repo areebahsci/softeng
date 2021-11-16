@@ -1,3 +1,5 @@
+// ignore_for_file: missing_return
+
 import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -102,46 +104,57 @@ class _ListOfUsersRegisteredRegisterWidgetState
                   );
                 }
                 List<UsersRecord> listViewUsersRecordList = snapshot.data;
-                return ListView.builder(
-                  padding: EdgeInsets.zero,
-                  scrollDirection: Axis.vertical,
-                  itemCount: listViewUsersRecordList.length,
-                  itemBuilder: (context, listViewIndex) {
-                    final listViewUsersRecord =
-                        listViewUsersRecordList[listViewIndex];
-                    return Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(10, 20, 10, 0),
-                      child: Container(
-                        width: 100,
-                        height: 70,
-                        decoration: BoxDecoration(
-                          color: Color(0xFFEEEEEE),
-                        ),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(10, 10, 0, 0),
-                              child: Text(
-                                listViewUsersRecord.displayName,
-                                style: FlutterFlowTheme.bodyText1,
+
+                var document = FirebaseFirestore.instance.collection('games');
+                var query = FirebaseFirestore.instance
+                    .collection('games')
+                    .where('currentPlayerList',
+                        arrayContains: widget.gamesParameter.toString());
+                query.get().then((data) {
+                  if (data.docs.length > 0) {
+                    return ListView.builder(
+                        padding: EdgeInsets.zero,
+                        scrollDirection: Axis.vertical,
+                        itemCount: listViewUsersRecordList.length,
+                        itemBuilder: (context, listViewIndex) {
+                          final listViewUsersRecord =
+                              listViewUsersRecordList[listViewIndex];
+
+                          return Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(10, 20, 10, 0),
+                            child: Container(
+                              width: 100,
+                              height: 70,
+                              decoration: BoxDecoration(
+                                color: Color(0xFFEEEEEE),
+                              ),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10, 10, 0, 0),
+                                    child: Text(
+                                      listViewUsersRecord.displayName,
+                                      style: FlutterFlowTheme.bodyText1,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10, 10, 0, 0),
+                                    child: Text(
+                                      listViewUsersRecord.email,
+                                      style: FlutterFlowTheme.bodyText1,
+                                    ),
+                                  )
+                                ],
                               ),
                             ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(10, 10, 0, 0),
-                              child: Text(
-                                listViewUsersRecord.email,
-                                style: FlutterFlowTheme.bodyText1,
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    );
-                  },
-                );
+                          );
+                        });
+                  }
+                });
               },
             ),
           )

@@ -101,6 +101,7 @@ class _ListOfUsersRegisteredPreviousWidgetState
                   );
                 }
                 List<UsersRecord> listViewUsersRecordList = snapshot.data;
+
                 return ListView.builder(
                   padding: EdgeInsets.zero,
                   scrollDirection: Axis.vertical,

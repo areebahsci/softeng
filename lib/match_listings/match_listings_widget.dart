@@ -22,6 +22,9 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
   bool _loadingButton2 = false;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
+  bool playerssort = false;
+  bool timesort = false;
+
   List listView;
   callback(List listview) {
     this.listView = listview;
@@ -177,8 +180,9 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
                                             child: FFButtonWidget(
                                               text: "Time",
                                               onPressed: () {
-                                                listView.sort((a, b) =>
-                                                    b.time.compareTo(a.time));
+                                                setState(() {
+                                                  timesort = !timesort;
+                                                });
                                               },
                                               options: FFButtonOptions(
                                                 width: 130,
@@ -207,9 +211,9 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
                                             child: FFButtonWidget(
                                               text: "Current Players",
                                               onPressed: () {
-                                                listView.sort((a, b) =>
-                                                    b.currentPlayers.compareTo(
-                                                        a.currentPlayers));
+                                                setState(() {
+                                                  playerssort = !playerssort;
+                                                });
                                               },
                                               options: FFButtonOptions(
                                                 width: 130,
@@ -336,6 +340,14 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
                     ),
                   );
                 }
+                if (timesort == true) {
+                  snapshot.data.sort((a, b) => a.date.compareTo(b.date));
+                }
+                if (playerssort == true) {
+                  snapshot.data.sort(
+                      (a, b) => a.currentPlayers.compareTo(b.currentPlayers));
+                }
+
                 List<GamesRecord> listViewGamesRecordList = snapshot.data;
                 callback(listViewGamesRecordList);
                 return ListView.builder(
