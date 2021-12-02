@@ -21,7 +21,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFFF5F5F5),
+      backgroundColor: Color(0xFFFFFFFF),
       body: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
@@ -29,7 +29,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
             width: double.infinity,
             height: 100,
             decoration: BoxDecoration(
-              color: Color(0xFF00A898),
+              color: Color(0xF350E829),
             ),
             child: Row(
               mainAxisSize: MainAxisSize.max,
@@ -48,7 +48,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                     },
                     child: Icon(
                       Icons.arrow_back,
-                      color: Colors.white,
+                      color: Colors.black,
                       size: 24,
                     ),
                   ),
@@ -57,13 +57,13 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                   child: Align(
                     alignment: AlignmentDirectional(0, 0.45),
                     child: Text(
-                      'Previous Matches',
+                      'MATCH HISTORY',
                       textAlign: TextAlign.center,
                       style: GoogleFonts.getFont(
-                        'Source Sans Pro',
-                        color: Colors.white,
+                        'Lexend Deca',
+                        color: Colors.black,
                         fontWeight: FontWeight.bold,
-                        fontSize: 30,
+                        fontSize: 25,
                       ),
                     ),
                   ),
@@ -136,7 +136,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                           listViewGamesRecord.gameType,
                                           style: FlutterFlowTheme.bodyText1
                                               .override(
-                                            fontFamily: 'Poppins',
+                                            fontFamily: 'Lexend Deca',
                                             fontWeight: FontWeight.w600,
                                           ),
                                         ),
@@ -151,7 +151,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                               textAlign: TextAlign.start,
                                               style: FlutterFlowTheme.bodyText1
                                                   .override(
-                                                fontFamily: 'Poppins',
+                                                fontFamily: 'Lexend Deca',
                                                 fontWeight: FontWeight.w600,
                                               ),
                                             ),
@@ -177,7 +177,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                                 style: FlutterFlowTheme
                                                     .bodyText1
                                                     .override(
-                                                  fontFamily: 'Poppins',
+                                                  fontFamily: 'Lexend Deca',
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                               ),
@@ -192,7 +192,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                             listViewGamesRecord.gameTitle,
                                             style: FlutterFlowTheme.bodyText1
                                                 .override(
-                                              fontFamily: 'Poppins',
+                                              fontFamily: 'Lexend Deca',
                                               fontWeight: FontWeight.w600,
                                             ),
                                           ),
@@ -217,7 +217,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                                 style: FlutterFlowTheme
                                                     .bodyText1
                                                     .override(
-                                                  fontFamily: 'Poppins',
+                                                  fontFamily: 'Lexend Deca',
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                               ),
