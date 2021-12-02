@@ -103,7 +103,7 @@ class _CreateAGameWidgetState extends State<CreateAGameWidget> {
                             'Create a new game',
                             textAlign: TextAlign.center,
                             style: GoogleFonts.getFont(
-                              'Source Sans Pro',
+                              'Lexend Deca',
                               color: Colors.white,
                               fontWeight: FontWeight.w600,
                               fontSize: 25,
@@ -179,7 +179,7 @@ class _CreateAGameWidgetState extends State<CreateAGameWidget> {
                         width: 130,
                         height: 40,
                         textStyle: FlutterFlowTheme.bodyText1.override(
-                          fontFamily: 'Poppins',
+                          fontFamily: 'Lexend Deca',
                           color: Colors.black,
                         ),
                         fillColor: Color(0xFFCECDCD),
@@ -279,7 +279,7 @@ class _CreateAGameWidgetState extends State<CreateAGameWidget> {
                           height: 40,
                           color: FlutterFlowTheme.primaryColor,
                           textStyle: FlutterFlowTheme.subtitle2.override(
-                            fontFamily: 'Poppins',
+                            fontFamily: 'Lexend Deca',
                             color: Colors.white,
                           ),
                           borderSide: BorderSide(
@@ -465,7 +465,7 @@ class _CreateAGameWidgetState extends State<CreateAGameWidget> {
                             height: 40,
                             color: Color(0xFF9800A8),
                             textStyle: FlutterFlowTheme.subtitle2.override(
-                              fontFamily: 'Poppins',
+                              fontFamily: 'Lexend Deca',
                               color: Colors.white,
                               fontWeight: FontWeight.w500,
                             ),

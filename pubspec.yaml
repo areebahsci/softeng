@@ -20,6 +20,8 @@ version: 1.0.0+1
 environment:
   sdk: ">=2.7.0 <3.0.0"
 
+
+
 dependencies:
   flutter:
     sdk: flutter
@@ -47,6 +49,8 @@ dependencies:
   table_calendar: ^2.3.3
   timeago:
   url_launcher:
+  device_apps:
+  android_intent:
 
 
   # The following adds the Cupertino Icons font to your application.

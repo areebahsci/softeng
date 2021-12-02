@@ -15,6 +15,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.7.2"
+  android_intent:
+    dependency: "direct main"
+    description:
+      name: android_intent
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.2"
   archive:
     dependency: transitive
     description:
@@ -236,6 +243,13 @@ packages:
     dependency: transitive
     description:
       name: dart_style
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.1"
+  device_apps:
+    dependency: "direct main"
+    description:
+      name: device_apps
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.1"

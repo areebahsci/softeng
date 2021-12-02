@@ -9,6 +9,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class RegisterToMatchDetailsWidget extends StatefulWidget {
   RegisterToMatchDetailsWidget({
@@ -168,7 +169,7 @@ class _RegisterToMatchDetailsWidgetState
                               Text(
                                 listViewGamesRecord.gameType,
                                 style: FlutterFlowTheme.bodyText1.override(
-                                  fontFamily: 'Poppins',
+                                  fontFamily: 'Lexend Deca',
                                   fontWeight: FontWeight.w600,
                                 ),
                               )
@@ -196,12 +197,64 @@ class _RegisterToMatchDetailsWidgetState
                                           .location,
                                       style:
                                           FlutterFlowTheme.bodyText1.override(
-                                        fontFamily: 'Poppins',
+                                        fontFamily: 'Lexend Deca',
                                         fontWeight: FontWeight.w600,
                                       ),
                                     ),
                                   ),
                                 ),
+                              )
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              FFButtonWidget(
+                                text: 'OPEN LOCATION',
+                                icon: Icon(
+                                  Icons.map,
+                                  size: 15,
+                                ),
+                                onPressed: () async {
+                                  setState(() => _loadingButton1 = true);
+                                  try {
+                                    final latit =
+                                        registerToMatchDetailsGamesRecord
+                                            .geolocation.latitude;
+                                    final longi =
+                                        registerToMatchDetailsGamesRecord
+                                            .geolocation.longitude;
+                                    final url =
+                                        'https://www.google.com/maps/search/?api=1&query=$latit,$longi';
+                                    if (await canLaunch(url)) {
+                                      await launch(url);
+                                    } else {
+                                      throw 'Could not launch $url';
+                                    }
+                                  } finally {
+                                    setState(() => _loadingButton1 = false);
+                                  }
+                                },
+                                options: FFButtonOptions(
+                                  width: 350,
+                                  height: 40,
+                                  color: Color(0xF350E829),
+                                  textStyle:
+                                      FlutterFlowTheme.subtitle2.override(
+                                    fontFamily: 'Lexend Deca',
+                                    color: Colors.black,
+                                  ),
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                    width: 1,
+                                  ),
+                                  borderRadius: 12,
+                                ),
+                                loading: _loadingButton1,
                               )
                             ],
                           ),
@@ -231,7 +284,7 @@ class _RegisterToMatchDetailsWidgetState
                                       textAlign: TextAlign.center,
                                       style:
                                           FlutterFlowTheme.bodyText1.override(
-                                        fontFamily: 'Poppins',
+                                        fontFamily: 'Lexend Deca',
                                         fontWeight: FontWeight.w600,
                                       ),
                                     ),
@@ -265,7 +318,7 @@ class _RegisterToMatchDetailsWidgetState
                                       '${registerToMatchDetailsGamesRecord.currentPlayers.toString()}/${registerToMatchDetailsGamesRecord.maxPlayers.toString()}',
                                       style:
                                           FlutterFlowTheme.bodyText1.override(
-                                        fontFamily: 'Poppins',
+                                        fontFamily: 'Lexend Deca',
                                         fontWeight: FontWeight.w600,
                                       ),
                                     ),
@@ -299,7 +352,7 @@ class _RegisterToMatchDetailsWidgetState
                                       registerToMatchDetailsGamesRecord.host,
                                       style:
                                           FlutterFlowTheme.bodyText1.override(
-                                        fontFamily: 'Poppins',
+                                        fontFamily: 'Lexend Deca',
                                         fontWeight: FontWeight.w600,
                                       ),
                                     ),
@@ -326,7 +379,7 @@ class _RegisterToMatchDetailsWidgetState
                               'no description available',
                             ),
                             style: FlutterFlowTheme.bodyText1.override(
-                              fontFamily: 'Poppins',
+                              fontFamily: 'Lexend Deca',
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -362,7 +415,7 @@ class _RegisterToMatchDetailsWidgetState
                               height: 40,
                               color: Color(0xF350E829),
                               textStyle: FlutterFlowTheme.subtitle2.override(
-                                fontFamily: 'Poppins',
+                                fontFamily: 'Lexend Deca',
                                 color: Colors.black,
                               ),
                               borderSide: BorderSide(
@@ -419,7 +472,7 @@ class _RegisterToMatchDetailsWidgetState
                               height: 40,
                               color: Color(0xF350E829),
                               textStyle: FlutterFlowTheme.subtitle2.override(
-                                fontFamily: 'Poppins',
+                                fontFamily: 'Lexend Deca',
                                 color: Colors.black,
                               ),
                               borderSide: BorderSide(
