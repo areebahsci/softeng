@@ -110,13 +110,13 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
             ),
           ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+            padding: EdgeInsetsDirectional.fromSTEB(11, 10, 10, 10),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  width: MediaQuery.of(context).size.width * 0.45,
+                  width: MediaQuery.of(context).size.width * 0.445,
                   height: 50,
                   decoration: BoxDecoration(
                     color: Color(0xFFFFFFFF),
@@ -288,9 +288,9 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(11, 0, 0, 0),
                   child: Container(
-                    width: MediaQuery.of(context).size.width * 0.48,
+                    width: MediaQuery.of(context).size.width * 0.445,
                     height: 50,
                     decoration: BoxDecoration(
                       color: Color(0xFFFFFFFF),
