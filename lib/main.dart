@@ -105,7 +105,7 @@ class _NavBarPageState extends State<NavBarPage> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.home_outlined,
+              Icons.home,
               size: 24,
             ),
             label: 'Home',
@@ -114,7 +114,7 @@ class _NavBarPageState extends State<NavBarPage> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.search,
-              size: 20,
+              size: 24,
             ),
             label: 'Match Listings',
             tooltip: '',
@@ -136,10 +136,10 @@ class _NavBarPageState extends State<NavBarPage> {
             tooltip: '',
           )
         ],
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
         currentIndex: tabs.keys.toList().indexOf(_currentPage),
-        selectedItemColor: Color(0xFF9800A8),
-        unselectedItemColor: Color(0x8A000000),
+        selectedItemColor: Color(0xFFFFFFFF),
+        unselectedItemColor: Color(0xFFC0C0C0),
         onTap: (i) => setState(() => _currentPage = tabs.keys.toList()[i]),
         showSelectedLabels: false,
         showUnselectedLabels: false,

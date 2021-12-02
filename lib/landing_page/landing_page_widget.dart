@@ -62,7 +62,7 @@ class _LandingPageWidgetState extends State<LandingPageWidget>
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFFCECDCD),
+      backgroundColor: Color(0xF350E829),
       body: Column(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -76,7 +76,7 @@ class _LandingPageWidgetState extends State<LandingPageWidget>
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
             child: Text(
-              'Welcome to AppName',
+              'Whistle',
               style: FlutterFlowTheme.title1.override(
                 fontFamily: 'Lexend Deca',
                 color: Colors.white,
@@ -88,7 +88,7 @@ class _LandingPageWidgetState extends State<LandingPageWidget>
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 120),
             child: Text(
-              'Phrase',
+              'Blow the whistle, start the game',
               style: FlutterFlowTheme.title3.override(
                 fontFamily: 'Lexend Deca',
                 color: Colors.white,
@@ -118,7 +118,7 @@ class _LandingPageWidgetState extends State<LandingPageWidget>
               options: FFButtonOptions(
                 width: double.infinity,
                 height: 40,
-                color: Color(0xFF00A898),
+                color: Color(0xF3000000),
                 textStyle: FlutterFlowTheme.subtitle2.override(
                   fontFamily: 'Poppins',
                   color: Colors.white,
@@ -152,7 +152,7 @@ class _LandingPageWidgetState extends State<LandingPageWidget>
               options: FFButtonOptions(
                 width: double.infinity,
                 height: 40,
-                color: Color(0xFF00A898),
+                color: Color(0xF3000000),
                 textStyle: FlutterFlowTheme.subtitle2.override(
                   fontFamily: 'Poppins',
                   color: Colors.white,

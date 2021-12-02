@@ -1,7 +1,10 @@
+import 'package:firebase_storage/firebase_storage.dart';
+
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../landing_page/landing_page_widget.dart';
 import '../register_to_match_details/register_to_match_details_widget.dart';
@@ -24,6 +27,11 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
 
   bool playerssort = false;
   bool timesort = false;
+  bool sportsort = false;
+  String gameTypeValue = "null";
+  String playerNoValue = "null";
+  String gameTypeFil;
+  String playerNoFil;
 
   List listView;
   callback(List listview) {
@@ -44,7 +52,7 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFFF5F5F5),
+      backgroundColor: Color(0xFFFFFFFF),
       body: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
@@ -52,7 +60,7 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
             width: double.infinity,
             height: 100,
             decoration: BoxDecoration(
-              color: Color(0xFF00A898),
+              color: Color(0xF350E829),
             ),
             child: Row(
               mainAxisSize: MainAxisSize.max,
@@ -63,13 +71,13 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
                     child: Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
                       child: Text(
-                        'Match Listings',
+                        'MATCH LISTINGS',
                         textAlign: TextAlign.center,
                         style: GoogleFonts.getFont(
-                          'Source Sans Pro',
-                          color: Colors.white,
+                          'Lexend Deca',
+                          color: Colors.black,
                           fontWeight: FontWeight.bold,
-                          fontSize: 30,
+                          fontSize: 25,
                         ),
                       ),
                     ),
@@ -111,13 +119,148 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
                   width: MediaQuery.of(context).size.width * 0.45,
                   height: 50,
                   decoration: BoxDecoration(
-                    color: Color(0xFFEEEEEE),
+                    color: Color(0xFFFFFFFF),
                   ),
                   child: Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 5, 2, 0),
                     child: FFButtonWidget(
                       onPressed: () {
                         print('Button pressed ...');
+                        showDialog(
+                          context: context,
+                          builder: (context) {
+                            return Dialog(
+                                insetPadding: EdgeInsets.all(15),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(40)),
+                                elevation: 16,
+                                child: Container(
+                                  child: ListView(
+                                    shrinkWrap: true,
+                                    children: <Widget>[
+                                      SizedBox(height: 40),
+                                      Center(child: Text('FILTER BY:')),
+                                      SizedBox(height: 40),
+                                      Row(children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  10, 10, 10, 10),
+                                          child: Text('SPORT:'),
+                                        )
+                                      ]),
+                                      StatefulBuilder(
+                                        builder: (context, setState) {
+                                          return FlutterFlowDropDown(
+                                            options: [
+                                              'Any',
+                                              'Football',
+                                              'Basketball',
+                                              'Tennis',
+                                              'Volleyball',
+                                              'Badminton',
+                                              'Table Tennis',
+                                              'Cricket',
+                                            ].toList(),
+                                            onChanged: (val) => setState(
+                                                () => gameTypeFil = val),
+                                            width: 130,
+                                            height: 40,
+                                            textStyle: FlutterFlowTheme
+                                                .bodyText1
+                                                .override(
+                                              fontFamily: 'Lexend Deca',
+                                              color: Colors.black,
+                                            ),
+                                            fillColor: Color(0xFFCECDCD),
+                                            elevation: 2,
+                                            borderColor: Colors.transparent,
+                                            borderWidth: 0,
+                                            borderRadius: 40,
+                                            margin:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    8, 4, 8, 4),
+                                            hidesUnderline: true,
+                                          );
+                                        },
+                                      ),
+                                      Row(children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  10, 10, 10, 10),
+                                          child: Text('Players:'),
+                                        )
+                                      ]),
+                                      StatefulBuilder(
+                                        builder: (context, setState) {
+                                          return FlutterFlowDropDown(
+                                            options: [
+                                              'Any',
+                                              '<10',
+                                              '10+',
+                                              '20+',
+                                            ].toList(),
+                                            onChanged: (val) => setState(
+                                                () => playerNoFil = val),
+                                            width: 130,
+                                            height: 40,
+                                            textStyle: FlutterFlowTheme
+                                                .bodyText1
+                                                .override(
+                                              fontFamily: 'Lexend Deca',
+                                              color: Colors.black,
+                                            ),
+                                            fillColor: Color(0xFFCECDCD),
+                                            elevation: 2,
+                                            borderColor: Colors.transparent,
+                                            borderWidth: 0,
+                                            borderRadius: 40,
+                                            margin:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    8, 4, 8, 4),
+                                            hidesUnderline: true,
+                                          );
+                                        },
+                                      ),
+                                      Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(20, 20, 20, 20),
+                                              child: FFButtonWidget(
+                                                text: "APPLY FILTERS",
+                                                onPressed: () {
+                                                  setState(() {});
+                                                },
+                                                options: FFButtonOptions(
+                                                  width: 130,
+                                                  height: 40,
+                                                  color: Color(0xF350E829),
+                                                  textStyle: FlutterFlowTheme
+                                                      .subtitle2
+                                                      .override(
+                                                    fontFamily: 'Lexend Deca',
+                                                    color: Colors.black,
+                                                    fontSize: 20,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                                  borderSide: BorderSide(
+                                                    color: Colors.transparent,
+                                                    width: 1,
+                                                  ),
+                                                  borderRadius: 12,
+                                                ),
+                                              ),
+                                            )
+                                          ])
+                                    ],
+                                  ),
+                                ));
+                          },
+                        );
                       },
                       text: 'FILTER',
                       icon: Icon(
@@ -127,10 +270,10 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
                       options: FFButtonOptions(
                         width: 130,
                         height: 40,
-                        color: Color(0xFF9800A8),
+                        color: Color(0xF350E829),
                         textStyle: FlutterFlowTheme.subtitle2.override(
-                          fontFamily: 'Poppins',
-                          color: Colors.white,
+                          fontFamily: 'Lexend Deca',
+                          color: Colors.black,
                           fontSize: 21,
                           fontWeight: FontWeight.w600,
                         ),
@@ -150,7 +293,7 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
                     width: MediaQuery.of(context).size.width * 0.48,
                     height: 50,
                     decoration: BoxDecoration(
-                      color: Color(0xFFEEEEEE),
+                      color: Color(0xFFFFFFFF),
                     ),
                     child: Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 5, 2, 0),
@@ -161,6 +304,7 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
                             context: context,
                             builder: (context) {
                               return Dialog(
+                                insetPadding: EdgeInsets.all(100),
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(40)),
                                 elevation: 16,
@@ -168,15 +312,17 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
                                   child: ListView(
                                     shrinkWrap: true,
                                     children: <Widget>[
-                                      SizedBox(height: 20),
+                                      SizedBox(height: 45),
                                       Center(child: Text('SORT BY:')),
-                                      SizedBox(height: 20),
+                                      SizedBox(height: 45),
                                       Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
                                         children: [
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    15, 15, 15, 15),
+                                                    20, 20, 20, 20),
                                             child: FFButtonWidget(
                                               text: "Time",
                                               onPressed: () {
@@ -187,13 +333,13 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
                                               options: FFButtonOptions(
                                                 width: 130,
                                                 height: 40,
-                                                color: Color(0xFF9800A8),
+                                                color: Color(0xF350E829),
                                                 textStyle: FlutterFlowTheme
                                                     .subtitle2
                                                     .override(
-                                                  fontFamily: 'Poppins',
-                                                  color: Colors.white,
-                                                  fontSize: 18,
+                                                  fontFamily: 'Lexend Deca',
+                                                  color: Colors.black,
+                                                  fontSize: 20,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                                 borderSide: BorderSide(
@@ -204,12 +350,18 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
                                               ),
                                             ),
                                           ),
+                                        ],
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    15, 15, 15, 15),
+                                                    20, 20, 20, 20),
                                             child: FFButtonWidget(
-                                              text: "Current Players",
+                                              text: "Players",
                                               onPressed: () {
                                                 setState(() {
                                                   playerssort = !playerssort;
@@ -218,13 +370,50 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
                                               options: FFButtonOptions(
                                                 width: 130,
                                                 height: 40,
-                                                color: Color(0xFF9800A8),
+                                                color: Color(0xF350E829),
                                                 textStyle: FlutterFlowTheme
                                                     .subtitle2
                                                     .override(
-                                                  fontFamily: 'Poppins',
-                                                  color: Colors.white,
-                                                  fontSize: 18,
+                                                  fontFamily: 'Lexend Deca',
+                                                  color: Colors.black,
+                                                  fontSize: 20,
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                                borderSide: BorderSide(
+                                                  color: Colors.transparent,
+                                                  width: 1,
+                                                ),
+                                                borderRadius: 12,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    20, 20, 20, 20),
+                                            child: FFButtonWidget(
+                                              text: "Sport",
+                                              onPressed: () {
+                                                setState(() {
+                                                  sportsort = !sportsort;
+                                                });
+                                              },
+                                              options: FFButtonOptions(
+                                                width: 130,
+                                                height: 40,
+                                                color: Color(0xF350E829),
+                                                textStyle: FlutterFlowTheme
+                                                    .subtitle2
+                                                    .override(
+                                                  fontFamily: 'Lexend Deca',
+                                                  color: Colors.black,
+                                                  fontSize: 20,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                                 borderSide: BorderSide(
@@ -252,10 +441,10 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
                         options: FFButtonOptions(
                           width: 130,
                           height: 40,
-                          color: Color(0xFF9800A8),
+                          color: Color(0xF350E829),
                           textStyle: FlutterFlowTheme.subtitle2.override(
-                            fontFamily: 'Poppins',
-                            color: Colors.white,
+                            fontFamily: 'Lexend Deca',
+                            color: Colors.black,
                             fontSize: 21,
                             fontWeight: FontWeight.w600,
                           ),
@@ -347,8 +536,49 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
                   snapshot.data.sort(
                       (a, b) => a.currentPlayers.compareTo(b.currentPlayers));
                 }
+                if (sportsort == true) {
+                  snapshot.data
+                      .sort((a, b) => a.gameType.compareTo(b.gameType));
+                }
 
                 List<GamesRecord> listViewGamesRecordList = snapshot.data;
+
+                if ((gameTypeFil == "Basketball") ||
+                    (gameTypeFil == "Football") ||
+                    (gameTypeFil == "Cricket") ||
+                    (gameTypeFil == "Tennis") ||
+                    (gameTypeFil == "Volleyball") ||
+                    (gameTypeFil == "Badminton") ||
+                    (gameTypeFil == "Table Tennis")) {
+                  listViewGamesRecordList = listViewGamesRecordList
+                      .where((i) => (i.gameType == gameTypeFil))
+                      .toList();
+                } else {
+                  listViewGamesRecordList = listViewGamesRecordList;
+                }
+
+                if (playerNoFil == "<10") {
+                  listViewGamesRecordList = listViewGamesRecordList
+                      .where((i) => (i.currentPlayers < 10))
+                      .toList();
+                }
+
+                if (playerNoFil == "10+") {
+                  listViewGamesRecordList = listViewGamesRecordList
+                      .where((i) => (i.currentPlayers > 10))
+                      .toList();
+                }
+
+                if (playerNoFil == "20+") {
+                  listViewGamesRecordList = listViewGamesRecordList
+                      .where((i) => (i.currentPlayers > 20))
+                      .toList();
+                }
+
+                if (playerNoFil == "Any") {
+                  listViewGamesRecordList = listViewGamesRecordList;
+                }
+
                 callback(listViewGamesRecordList);
                 return ListView.builder(
                   padding: EdgeInsets.zero,
@@ -394,7 +624,7 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
                                           listViewGamesRecord.gameType,
                                           style: FlutterFlowTheme.bodyText1
                                               .override(
-                                            fontFamily: 'Poppins',
+                                            fontFamily: 'Lexend Deca',
                                             fontWeight: FontWeight.w600,
                                           ),
                                         ),
@@ -409,7 +639,7 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
                                               textAlign: TextAlign.start,
                                               style: FlutterFlowTheme.bodyText1
                                                   .override(
-                                                fontFamily: 'Poppins',
+                                                fontFamily: 'Lexend Deca',
                                                 fontWeight: FontWeight.w600,
                                               ),
                                             ),
@@ -435,7 +665,7 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
                                                 style: FlutterFlowTheme
                                                     .bodyText1
                                                     .override(
-                                                  fontFamily: 'Poppins',
+                                                  fontFamily: 'Lexend Deca',
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                               ),
@@ -450,7 +680,7 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
                                             listViewGamesRecord.gameTitle,
                                             style: FlutterFlowTheme.bodyText1
                                                 .override(
-                                              fontFamily: 'Poppins',
+                                              fontFamily: 'Lexend Deca',
                                               fontWeight: FontWeight.w600,
                                             ),
                                           ),
@@ -475,7 +705,7 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
                                                 style: FlutterFlowTheme
                                                     .bodyText1
                                                     .override(
-                                                  fontFamily: 'Poppins',
+                                                  fontFamily: 'Lexend Deca',
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                               ),
@@ -508,7 +738,7 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
                                         },
                                         child: Icon(
                                           Icons.arrow_forward,
-                                          color: Color(0xFF00A898),
+                                          color: Color(0xF350E829),
                                           size: 24,
                                         ),
                                       ),

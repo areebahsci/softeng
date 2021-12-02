@@ -40,7 +40,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFFF5F5F5),
+      backgroundColor: Color(0xFFFFFFFF),
       body: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
@@ -48,20 +48,20 @@ class _ProfileWidgetState extends State<ProfileWidget> {
             width: double.infinity,
             height: 100,
             decoration: BoxDecoration(
-              color: Color(0xFF00A898),
+              color: Color(0xF350E829),
             ),
             child: Stack(
               children: [
                 Align(
                   alignment: AlignmentDirectional(0, 0.5),
                   child: Text(
-                    'Profile Page',
+                    'PROFILE',
                     textAlign: TextAlign.center,
                     style: GoogleFonts.getFont(
-                      'Source Sans Pro',
-                      color: Colors.white,
+                      'Lexend Deca',
+                      color: Colors.black,
                       fontWeight: FontWeight.bold,
-                      fontSize: 30,
+                      fontSize: 25,
                     ),
                   ),
                 ),
@@ -176,7 +176,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   child: Text(
                     'Username:',
                     style: FlutterFlowTheme.bodyText1.override(
-                      fontFamily: 'Poppins',
+                      fontFamily: 'Lexend Deca',
                       fontSize: 18,
                     ),
                   ),
@@ -187,7 +187,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     child: Text(
                       currentUserDisplayName,
                       style: FlutterFlowTheme.bodyText1.override(
-                        fontFamily: 'Poppins',
+                        fontFamily: 'Lexend Deca',
                         fontSize: 18,
                       ),
                     ),
@@ -243,7 +243,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   child: Text(
                     'Password:',
                     style: FlutterFlowTheme.bodyText1.override(
-                      fontFamily: 'Poppins',
+                      fontFamily: 'Lexend Deca',
                       fontSize: 18,
                     ),
                   ),
@@ -320,7 +320,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   child: Text(
                     'Email:',
                     style: FlutterFlowTheme.bodyText1.override(
-                      fontFamily: 'Poppins',
+                      fontFamily: 'Lexend Deca',
                       fontSize: 18,
                     ),
                   ),
@@ -331,7 +331,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     child: Text(
                       currentUserEmail,
                       style: FlutterFlowTheme.bodyText1.override(
-                        fontFamily: 'Poppins',
+                        fontFamily: 'Lexend Deca',
                         fontSize: 18,
                       ),
                     ),
@@ -387,7 +387,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   child: Text(
                     'Phone number:',
                     style: FlutterFlowTheme.bodyText1.override(
-                      fontFamily: 'Poppins',
+                      fontFamily: 'Lexend Deca',
                       fontSize: 18,
                     ),
                   ),
@@ -398,7 +398,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     child: Text(
                       currentPhoneNumber,
                       style: FlutterFlowTheme.bodyText1.override(
-                        fontFamily: 'Poppins',
+                        fontFamily: 'Lexend Deca',
                         fontSize: 18,
                       ),
                     ),

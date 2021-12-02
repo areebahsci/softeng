@@ -49,7 +49,7 @@ class _RegisterToMatchDetailsWidgetState
         final registerToMatchDetailsGamesRecord = snapshot.data;
         return Scaffold(
           key: scaffoldKey,
-          backgroundColor: Color(0xFFF5F5F5),
+          backgroundColor: Color(0xFFFFFFFF),
           body: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -57,7 +57,7 @@ class _RegisterToMatchDetailsWidgetState
                 width: double.infinity,
                 height: 100,
                 decoration: BoxDecoration(
-                  color: Color(0xFF00A898),
+                  color: Color(0xF350E829),
                 ),
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(2, 0, 0, 0),
@@ -97,7 +97,7 @@ class _RegisterToMatchDetailsWidgetState
                               },
                               child: Icon(
                                 Icons.arrow_back,
-                                color: Colors.white,
+                                color: Colors.black,
                                 size: 24,
                               ),
                             ),
@@ -109,10 +109,10 @@ class _RegisterToMatchDetailsWidgetState
                                 rowGamesRecord.gameTitle,
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.getFont(
-                                  'Source Sans Pro',
-                                  color: Colors.white,
+                                  'Lexend Deca',
+                                  color: Colors.black,
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 30,
+                                  fontSize: 25,
                                 ),
                               ),
                             ),
@@ -360,10 +360,10 @@ class _RegisterToMatchDetailsWidgetState
                             options: FFButtonOptions(
                               width: 350,
                               height: 40,
-                              color: Color(0xFF9800A8),
+                              color: Color(0xF350E829),
                               textStyle: FlutterFlowTheme.subtitle2.override(
                                 fontFamily: 'Poppins',
-                                color: Colors.white,
+                                color: Colors.black,
                               ),
                               borderSide: BorderSide(
                                 color: Colors.transparent,
@@ -417,10 +417,10 @@ class _RegisterToMatchDetailsWidgetState
                             options: FFButtonOptions(
                               width: 350,
                               height: 40,
-                              color: Color(0xFF9800A8),
+                              color: Color(0xF350E829),
                               textStyle: FlutterFlowTheme.subtitle2.override(
                                 fontFamily: 'Poppins',
-                                color: Colors.white,
+                                color: Colors.black,
                               ),
                               borderSide: BorderSide(
                                 color: Colors.transparent,

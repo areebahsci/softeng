@@ -33,7 +33,7 @@ class _LoginWidgetState extends State<LoginWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFFF5F5F5),
+      backgroundColor: Color(0xFFFFFFFF),
       body: Container(
         width: double.infinity,
         height: double.infinity,
@@ -181,7 +181,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                         options: FFButtonOptions(
                           width: 130,
                           height: 40,
-                          color: Color(0xFF00A898),
+                          color: Color(0xF350E829),
                           textStyle: FlutterFlowTheme.subtitle2.override(
                             fontFamily: 'Poppins',
                             color: Colors.white,

@@ -28,7 +28,7 @@ class _HomeWidgetState extends State<HomeWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFFF5F5F5),
+      backgroundColor: Color(0xFFFFFFFF),
       body: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
@@ -36,7 +36,7 @@ class _HomeWidgetState extends State<HomeWidget> {
             width: double.infinity,
             height: 100,
             decoration: BoxDecoration(
-              color: Color(0xFF00A898),
+              color: Color(0xFF50E839),
             ),
             child: Row(
               mainAxisSize: MainAxisSize.max,
@@ -47,13 +47,13 @@ class _HomeWidgetState extends State<HomeWidget> {
                     child: Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
                       child: Text(
-                        'Home',
+                        'HOME',
                         textAlign: TextAlign.center,
                         style: GoogleFonts.getFont(
-                          'Source Sans Pro',
-                          color: Colors.white,
+                          'Lexend Deca',
+                          color: Colors.black,
                           fontWeight: FontWeight.bold,
-                          fontSize: 30,
+                          fontSize: 25,
                         ),
                       ),
                     ),
@@ -97,7 +97,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                       'Welcome',
                       textAlign: TextAlign.center,
                       style: FlutterFlowTheme.bodyText1.override(
-                        fontFamily: 'Poppins',
+                        fontFamily: 'Lexend Deca',
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -111,7 +111,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                         currentUserDisplayName,
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.bodyText1.override(
-                          fontFamily: 'Poppins',
+                          fontFamily: 'Lexend Deca',
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -145,9 +145,9 @@ class _HomeWidgetState extends State<HomeWidget> {
               options: FFButtonOptions(
                 width: 350,
                 height: 40,
-                color: Color(0xFFFFC00E),
+                color: Color(0xF350E829),
                 textStyle: FlutterFlowTheme.subtitle2.override(
-                  fontFamily: 'Poppins',
+                  fontFamily: 'Lexend Deca',
                   color: Colors.white,
                 ),
                 borderSide: BorderSide(
@@ -185,9 +185,9 @@ class _HomeWidgetState extends State<HomeWidget> {
               options: FFButtonOptions(
                 width: 350,
                 height: 40,
-                color: Color(0xFFFFC00E),
+                color: Color(0xF350E829),
                 textStyle: FlutterFlowTheme.subtitle2.override(
-                  fontFamily: 'Poppins',
+                  fontFamily: 'Lexend Deca',
                   color: Colors.white,
                 ),
                 borderSide: BorderSide(
@@ -223,9 +223,9 @@ class _HomeWidgetState extends State<HomeWidget> {
               options: FFButtonOptions(
                 width: 350,
                 height: 40,
-                color: Color(0xFFFFC00E),
+                color: Color(0xF350E829),
                 textStyle: FlutterFlowTheme.subtitle2.override(
-                  fontFamily: 'Poppins',
+                  fontFamily: 'Lexend Deca',
                   color: Colors.white,
                 ),
                 borderSide: BorderSide(
@@ -242,7 +242,7 @@ class _HomeWidgetState extends State<HomeWidget> {
             child: Text(
               'Upcoming Matches',
               style: FlutterFlowTheme.bodyText1.override(
-                fontFamily: 'Poppins',
+                fontFamily: 'Lexend Deca',
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -311,7 +311,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         listViewGamesRecord.gameType,
                                         style:
                                             FlutterFlowTheme.bodyText1.override(
-                                          fontFamily: 'Poppins',
+                                          fontFamily: 'Lexend Deca',
                                           fontWeight: FontWeight.w600,
                                         ),
                                       ),
@@ -326,7 +326,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                             textAlign: TextAlign.start,
                                             style: FlutterFlowTheme.bodyText1
                                                 .override(
-                                              fontFamily: 'Poppins',
+                                              fontFamily: 'Lexend Deca',
                                               fontWeight: FontWeight.w600,
                                             ),
                                           ),
@@ -353,7 +353,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               '${dateTimeFormat('yMMMd', listViewGamesRecord.date)}, ${listViewGamesRecord.time}',
                                               style: FlutterFlowTheme.bodyText1
                                                   .override(
-                                                fontFamily: 'Poppins',
+                                                fontFamily: 'Lexend Deca',
                                                 fontWeight: FontWeight.w600,
                                               ),
                                             ),
@@ -367,7 +367,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                           listViewGamesRecord.gameTitle,
                                           style: FlutterFlowTheme.bodyText1
                                               .override(
-                                            fontFamily: 'Poppins',
+                                            fontFamily: 'Lexend Deca',
                                             fontWeight: FontWeight.w600,
                                           ),
                                         ),
@@ -393,7 +393,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               '${listViewGamesRecord.currentPlayers.toString()}/${listViewGamesRecord.maxPlayers.toString()}',
                                               style: FlutterFlowTheme.bodyText1
                                                   .override(
-                                                fontFamily: 'Poppins',
+                                                fontFamily: 'Lexend Deca',
                                                 fontWeight: FontWeight.w600,
                                               ),
                                             ),
@@ -425,7 +425,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       },
                                       child: Icon(
                                         Icons.arrow_forward,
-                                        color: Color(0xFF00A898),
+                                        color: Color(0xF350E829),
                                         size: 24,
                                       ),
                                     ),

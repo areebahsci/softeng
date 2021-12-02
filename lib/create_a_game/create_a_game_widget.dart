@@ -170,22 +170,10 @@ class _CreateAGameWidgetState extends State<CreateAGameWidget> {
                           'Football',
                           'Basketball',
                           'Tennis',
-                          'Squash',
-                          'Baseball',
-                          'Golf',
                           'Volleyball',
                           'Badminton',
-                          'Boxing',
                           'Table Tennis',
                           'Cricket',
-                          'Rugby',
-                          'Pool',
-                          'Bowling',
-                          'Ice Hockey',
-                          'Karate',
-                          'Horse racing',
-                          'Running',
-                          'Cycling'
                         ].toList(),
                         onChanged: (val) => setState(() => dropDownValue = val),
                         width: 130,
@@ -273,7 +261,7 @@ class _CreateAGameWidgetState extends State<CreateAGameWidget> {
                       ),
                       FlutterFlowPlacePicker(
                         iOSGoogleMapsApiKey:
-                            'AIzaSyDw3Nf3Ly6XcnHtnLfLUOEjNRlT1aeAbuMAIzaSyCjfEkAnLAuuYQLum5DnWGHFdTs0ln9FvI',
+                            'AIzaSyDw3Nf3Ly6XcnHtnLfLUOEjNRlT1aeAbuM',
                         androidGoogleMapsApiKey:
                             'AIzaSyCWl-1mzbebP0acqU2rTi1n6diedXqvauA',
                         webGoogleMapsApiKey:

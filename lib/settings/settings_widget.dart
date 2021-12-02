@@ -24,7 +24,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFFF5F5F5),
+      backgroundColor: Color(0xFFFFFFFF),
       body: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
@@ -34,20 +34,20 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                 width: double.infinity,
                 height: 100,
                 decoration: BoxDecoration(
-                  color: Color(0xFF00A898),
+                  color: Color(0xF350E829),
                 ),
                 child: Stack(
                   children: [
                     Align(
                       alignment: AlignmentDirectional(0, 0.5),
                       child: Text(
-                        'Settings',
+                        'SETINGS',
                         textAlign: TextAlign.center,
                         style: GoogleFonts.getFont(
-                          'Source Sans Pro',
-                          color: Colors.white,
+                          'Lexend Deca',
+                          color: Colors.black,
                           fontWeight: FontWeight.bold,
-                          fontSize: 30,
+                          fontSize: 25,
                         ),
                       ),
                     ),
@@ -118,7 +118,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                   height: 40,
                   color: FlutterFlowTheme.primaryColor,
                   textStyle: FlutterFlowTheme.subtitle2.override(
-                    fontFamily: 'Poppins',
+                    fontFamily: 'Lexend Deca',
                     color: Colors.white,
                     fontSize: 20,
                   ),
@@ -168,7 +168,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                 height: 40,
                 color: FlutterFlowTheme.primaryColor,
                 textStyle: FlutterFlowTheme.subtitle2.override(
-                  fontFamily: 'Poppins',
+                  fontFamily: 'Lexend Deca',
                   color: Colors.white,
                   fontSize: 20,
                 ),
@@ -210,7 +210,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                   height: 40,
                   color: FlutterFlowTheme.primaryColor,
                   textStyle: FlutterFlowTheme.subtitle2.override(
-                    fontFamily: 'Poppins',
+                    fontFamily: 'Lexend Deca',
                     color: Colors.white,
                     fontSize: 20,
                   ),
@@ -242,7 +242,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                   height: 40,
                   color: FlutterFlowTheme.primaryColor,
                   textStyle: FlutterFlowTheme.subtitle2.override(
-                    fontFamily: 'Poppins',
+                    fontFamily: 'Lexend Deca',
                     color: Colors.white,
                     fontSize: 20,
                   ),

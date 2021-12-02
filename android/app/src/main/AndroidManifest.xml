@@ -2,6 +2,8 @@
     package="com.flutterflow.sportsmanagementapp"
     xmlns:tools="http://schemas.android.com/tools">
    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-feature android:name="android.hardware.location"
+                  android:required="false" />
 
    <application
         android:label="sports_management_app"
@@ -33,6 +35,10 @@
               android:name="io.flutter.embedding.android.SplashScreenDrawable"
               android:resource="@drawable/launch_background"
               />
+
+            <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyCWl-1mzbebP0acqU2rTi1n6diedXqvauA"/>
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
