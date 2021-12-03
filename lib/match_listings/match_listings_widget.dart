@@ -1,4 +1,5 @@
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:intl/intl.dart';
 
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
@@ -32,6 +33,11 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
   String playerNoValue = "null";
   String gameTypeFil;
   String playerNoFil;
+
+  final CurrentMonth = DateTime.now().month;
+  final CurrentDate = DateTime.now().day;
+  final CurrentYear = DateTime.now().year;
+  final CurrentHour = DateTime.now().hour;
 
   List listView;
   callback(List listview) {
@@ -578,6 +584,12 @@ class _MatchListingsWidgetState extends State<MatchListingsWidget> {
                 if (playerNoFil == "Any") {
                   listViewGamesRecordList = listViewGamesRecordList;
                 }
+
+                listViewGamesRecordList = listViewGamesRecordList
+                    .where((i) => ((CurrentYear <= i.date.year) &&
+                        (CurrentMonth <= i.date.month) &&
+                        (CurrentDate <= i.date.day)))
+                    .toList();
 
                 callback(listViewGamesRecordList);
                 return ListView.builder(
