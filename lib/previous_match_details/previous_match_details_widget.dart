@@ -237,34 +237,6 @@ class _PreviousMatchDetailsWidgetState
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          Text(
-                            'HOST:',
-                            style: FlutterFlowTheme.bodyText1,
-                          ),
-                          Expanded(
-                            child: Align(
-                              alignment: AlignmentDirectional(-0.15, 0),
-                              child: Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 20, 0),
-                                child: Text(
-                                  listViewGamesRecord.host,
-                                  style: FlutterFlowTheme.bodyText1.override(
-                                    fontFamily: 'Lexend Deca',
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
                           Padding(
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(0, 0, 65, 0),
