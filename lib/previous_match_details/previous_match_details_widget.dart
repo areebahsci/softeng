@@ -32,7 +32,7 @@ class _PreviousMatchDetailsWidgetState
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFFF5F5F5),
+      backgroundColor: Color(0xFFFFFFFF),
       body: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
@@ -40,7 +40,7 @@ class _PreviousMatchDetailsWidgetState
             width: double.infinity,
             height: 100,
             decoration: BoxDecoration(
-              color: Color(0xFF00A898),
+              color: Color(0xF350E829),
             ),
             child: Padding(
               padding: EdgeInsetsDirectional.fromSTEB(2, 0, 0, 0),
@@ -88,8 +88,8 @@ class _PreviousMatchDetailsWidgetState
                             rowGamesRecord.gameTitle,
                             textAlign: TextAlign.center,
                             style: GoogleFonts.getFont(
-                              'Source Sans Pro',
-                              color: Colors.white,
+                              'Lexend Deca',
+                              color: Colors.black,
                               fontWeight: FontWeight.bold,
                               fontSize: 30,
                             ),
@@ -145,7 +145,7 @@ class _PreviousMatchDetailsWidgetState
                           Text(
                             listViewGamesRecord.gameType,
                             style: FlutterFlowTheme.bodyText1.override(
-                              fontFamily: 'Poppins',
+                              fontFamily: 'Lexend Deca',
                               fontWeight: FontWeight.w600,
                             ),
                           )
@@ -174,7 +174,7 @@ class _PreviousMatchDetailsWidgetState
                                 child: Text(
                                   listViewGamesRecord.location,
                                   style: FlutterFlowTheme.bodyText1.override(
-                                    fontFamily: 'Poppins',
+                                    fontFamily: 'Lexend Deca',
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
@@ -237,6 +237,34 @@ class _PreviousMatchDetailsWidgetState
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
+                          Text(
+                            'HOST:',
+                            style: FlutterFlowTheme.bodyText1,
+                          ),
+                          Expanded(
+                            child: Align(
+                              alignment: AlignmentDirectional(-0.15, 0),
+                              child: Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 20, 0),
+                                child: Text(
+                                  listViewGamesRecord.host,
+                                  style: FlutterFlowTheme.bodyText1.override(
+                                    fontFamily: 'Lexend Deca',
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
                           Padding(
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(0, 0, 65, 0),
@@ -254,7 +282,7 @@ class _PreviousMatchDetailsWidgetState
                                 child: Text(
                                   '${dateTimeFormat('yMMMd', listViewGamesRecord.date)}, ${listViewGamesRecord.time}',
                                   style: FlutterFlowTheme.bodyText1.override(
-                                    fontFamily: 'Poppins',
+                                    fontFamily: 'Lexend Deca',
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
@@ -286,7 +314,7 @@ class _PreviousMatchDetailsWidgetState
                                 child: Text(
                                   '${listViewGamesRecord.currentPlayers.toString()}/${listViewGamesRecord.maxPlayers.toString()}',
                                   style: FlutterFlowTheme.bodyText1.override(
-                                    fontFamily: 'Poppins',
+                                    fontFamily: 'Lexend Deca',
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
@@ -318,7 +346,7 @@ class _PreviousMatchDetailsWidgetState
                                 child: Text(
                                   listViewGamesRecord.host,
                                   style: FlutterFlowTheme.bodyText1.override(
-                                    fontFamily: 'Poppins',
+                                    fontFamily: 'Lexend Deca',
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
@@ -343,7 +371,7 @@ class _PreviousMatchDetailsWidgetState
                           'no description available',
                         ),
                         style: FlutterFlowTheme.bodyText1.override(
-                          fontFamily: 'Poppins',
+                          fontFamily: 'Lexend Deca',
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -375,10 +403,10 @@ class _PreviousMatchDetailsWidgetState
                         options: FFButtonOptions(
                           width: 350,
                           height: 40,
-                          color: Color(0xFF9800A8),
+                          color: Color(0xF350E829),
                           textStyle: FlutterFlowTheme.subtitle2.override(
-                            fontFamily: 'Poppins',
-                            color: Colors.white,
+                            fontFamily: 'Lexend Deca',
+                            color: Colors.black,
                           ),
                           borderSide: BorderSide(
                             color: Colors.transparent,

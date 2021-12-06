@@ -24,6 +24,11 @@ class _HomeWidgetState extends State<HomeWidget> {
   bool _loadingButton3 = false;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
+  final CurrentMonth = DateTime.now().month;
+  final CurrentDate = DateTime.now().day;
+  final CurrentYear = DateTime.now().year;
+  final CurrentHour = DateTime.now().hour;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -270,6 +275,11 @@ class _HomeWidgetState extends State<HomeWidget> {
                   );
                 }
                 List<GamesRecord> listViewGamesRecordList = snapshot.data;
+                listViewGamesRecordList = listViewGamesRecordList
+                    .where((i) => ((CurrentYear <= i.date.year) &&
+                        (CurrentMonth <= i.date.month) &&
+                        (CurrentDate <= i.date.day)))
+                    .toList();
                 return ListView.builder(
                   padding: EdgeInsets.zero,
                   scrollDirection: Axis.vertical,

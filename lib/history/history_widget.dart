@@ -17,6 +17,11 @@ class HistoryWidget extends StatefulWidget {
 class _HistoryWidgetState extends State<HistoryWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
+  final CurrentMonth = DateTime.now().month;
+  final CurrentDate = DateTime.now().day;
+  final CurrentYear = DateTime.now().year;
+  final CurrentHour = DateTime.now().hour;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,11 +81,9 @@ class _HistoryWidgetState extends State<HistoryWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
               child: StreamBuilder<List<GamesRecord>>(
                 stream: queryGamesRecord(
-                  queryBuilder: (gamesRecord) => gamesRecord
-                      .where('currentPlayersList',
-                          arrayContains: currentUserReference)
-                      .where('GameIsOver', isEqualTo: 1),
-                ),
+                    queryBuilder: (gamesRecord) => gamesRecord.where(
+                        'currentPlayersList',
+                        arrayContains: currentUserReference)),
                 builder: (context, snapshot) {
                   // Customize what your widget looks like when it's loading.
                   if (!snapshot.hasData) {
